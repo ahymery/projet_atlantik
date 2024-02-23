@@ -41,16 +41,7 @@ namespace Atlantik_Admin_App.utilitaires
             requete = "INSERT INTO secteur(NOM) VALUES (@NOMSECTEUR)";
             var cmd = new MySqlCommand(requete, bdd);
             cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
-
-            if (cmd.Parameters.Count > 0)
-            {
-                MessageBox.Show("Ajout effectué");
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Ajout echoué.");
-            }
+            int nb= cmd.ExecuteNonQuery();
         }
     }
 }
