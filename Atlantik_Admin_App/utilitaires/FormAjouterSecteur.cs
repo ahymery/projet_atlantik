@@ -12,11 +12,12 @@ using MySql.Data.MySqlClient;
 namespace Atlantik_Admin_App.utilitaires
 {
     public partial class FormAjouterSecteur : Form
-    {  
+    {
+        private MySqlConnection bdd;
+
         public FormAjouterSecteur()
         {
             InitializeComponent();
-            MySqlConnection bdd;
 
             bdd = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
@@ -32,6 +33,24 @@ namespace Atlantik_Admin_App.utilitaires
         private void AjouterSecteur_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnAjouterUnSecteur_Click(object sender, EventArgs e)
+        {
+            string requete;
+            requete = "INSERT INTO secteur(NOM) VALUES (@NOMSECTEUR)";
+            var cmd = new MySqlCommand(requete, bdd);
+            cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
+
+            if (cmd.Parameters.Count > 0)
+            {
+                MessageBox.Show("Ajout effectué");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Ajout echoué.");
+            }
         }
     }
 }

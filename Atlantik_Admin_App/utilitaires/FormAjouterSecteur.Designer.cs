@@ -57,6 +57,7 @@
             this.btnAjouterUnSecteur.TabIndex = 2;
             this.btnAjouterUnSecteur.Text = "Ajouter";
             this.btnAjouterUnSecteur.UseVisualStyleBackColor = true;
+            this.btnAjouterUnSecteur.Click += new System.EventHandler(this.btnAjouterUnSecteur_Click);
             // 
             // FormAjouterSecteur
             // 
