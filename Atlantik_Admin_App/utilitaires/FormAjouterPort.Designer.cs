@@ -67,7 +67,9 @@
             this.Controls.Add(this.tbxAjouterPort);
             this.Controls.Add(this.btnAjouterUnPort);
             this.Name = "FormAjouterPort";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un port";
+            this.Load += new System.EventHandler(this.FormAjouterPort_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

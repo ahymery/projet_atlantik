@@ -194,6 +194,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormAccueil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atlantik - Accueil";
             this.Load += new System.EventHandler(this.FormAccueil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logoAtlantik)).EndInit();

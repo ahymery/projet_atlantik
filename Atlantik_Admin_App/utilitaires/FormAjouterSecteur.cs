@@ -16,10 +16,6 @@ namespace Atlantik_Admin_App.utilitaires
         public FormAjouterSecteur()
         {
             InitializeComponent();
-        }
-
-        private void AjouterSecteur_Load(object sender, EventArgs e)
-        {
             MySqlConnection bdd;
 
             bdd = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
@@ -29,12 +25,13 @@ namespace Atlantik_Admin_App.utilitaires
             }
             catch (MySqlException error)
             {
-               MessageBox.Show("Erreur : " +  error.Message);
+                MessageBox.Show("Erreur : " + error.Message);
             }
-            finally
-            {
-                MessageBox.Show("La base de donnée est bien connecté");
-            }
+        }
+
+        private void AjouterSecteur_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

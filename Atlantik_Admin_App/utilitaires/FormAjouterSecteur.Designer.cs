@@ -67,6 +67,7 @@
             this.Controls.Add(this.tbxSecteur);
             this.Controls.Add(this.lblNomSecteur);
             this.Name = "FormAjouterSecteur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un Secteur";
             this.Load += new System.EventHandler(this.AjouterSecteur_Load);
             this.ResumeLayout(false);

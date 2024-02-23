@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,22 @@ namespace Atlantik_Admin_App.utilitaires
         public FormAjouterPort()
         {
             InitializeComponent();
+            MySqlConnection bdd;
+
+            bdd = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
+            try
+            {
+                bdd.Open();
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show("Erreur : " + error.Message);
+            }
+        }
+
+        private void FormAjouterPort_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
