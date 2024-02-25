@@ -108,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utilitaires\FormAjouterLiaison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormAjouterLiaison.Designer.cs">
+      <DependentUpon>FormAjouterLiaison.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilitaires\FormAjouterSecteur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="utilitaires\FormAjouterLiaison.resx">
+      <DependentUpon>FormAjouterLiaison.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAjouterSecteur.resx">
       <DependentUpon>FormAjouterSecteur.cs</DependentUpon>
     </EmbeddedResource>

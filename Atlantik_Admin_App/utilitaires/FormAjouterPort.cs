@@ -13,15 +13,15 @@ namespace Atlantik_Admin_App.utilitaires
 {
     public partial class FormAjouterPort : Form
     {
-        MySqlConnection bdd;
+        MySqlConnection oConnexion;
         public FormAjouterPort()
         {
             InitializeComponent();
 
-            bdd = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
+            oConnexion = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
-                bdd.Open();
+                oConnexion.Open();
             }
             catch (MySqlException error)
             {
@@ -38,7 +38,7 @@ namespace Atlantik_Admin_App.utilitaires
         {
             string requete;
             requete = "INSERT INTO port(NOM) VALUES (@NOMPORT)";
-            var cmd = new MySqlCommand(requete, bdd);
+            var cmd = new MySqlCommand(requete, oConnexion);
             cmd.Parameters.AddWithValue("@NOMPORT", tbxAjouterPort.Text);
             int nb = cmd.ExecuteNonQuery();
             MessageBox.Show("Ajout réussi.");

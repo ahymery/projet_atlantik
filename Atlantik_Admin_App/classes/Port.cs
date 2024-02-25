@@ -11,7 +11,7 @@ namespace Atlantik_Admin_App.classes
         private string nomPort;
         private int idPort;
 
-        public Port(string nomPort, int idPort)
+        public Port(int idPort, string nomPort)
         {
             this.nomPort = nomPort;
             this.idPort = idPort;
@@ -24,7 +24,7 @@ namespace Atlantik_Admin_App.classes
 
         public override string ToString()
         {
-            return "Id du port : " + GetId() + "Nom du port : " + nomPort;
+            return nomPort;
         }
     }
 }

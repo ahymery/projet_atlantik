@@ -24,7 +24,7 @@ namespace Atlantik_Admin_App.classes
 
         public override string ToString()
         {
-            return "Id : " + idSecteur.ToString() + "Nom : " + nomSecteur;
+            return nomSecteur;
         }
     }
 }

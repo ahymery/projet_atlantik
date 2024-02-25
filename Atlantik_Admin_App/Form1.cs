@@ -36,5 +36,11 @@ namespace Atlantik_Admin_App
             FormAjouterPort port = new FormAjouterPort();
             port.ShowDialog();
         }
+
+        private void btnAjouterLiaison_Click(object sender, EventArgs e)
+        {
+            FormAjouterLiaison liaison = new FormAjouterLiaison();
+            liaison.ShowDialog();
+        }
     }
 }
