@@ -42,6 +42,8 @@ namespace Atlantik_Admin_App.utilitaires
             var cmd = new MySqlCommand(requete, bdd);
             cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
             int nb= cmd.ExecuteNonQuery();
+            MessageBox.Show("Ajout réussi.");
+            Close();
         }
     }
 }
