@@ -42,5 +42,11 @@ namespace Atlantik_Admin_App
             FormAjouterLiaison liaison = new FormAjouterLiaison();
             liaison.ShowDialog();
         }
+
+        private void btnAjouterTarifs_Click(object sender, EventArgs e)
+        {
+            FormAjouterTarifs tarifs = new FormAjouterTarifs();
+            tarifs.ShowDialog();
+        }
     }
 }

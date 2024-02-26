@@ -54,7 +54,7 @@
             // 
             this.logoAtlantik.Image = ((System.Drawing.Image)(resources.GetObject("logoAtlantik.Image")));
             this.logoAtlantik.Location = new System.Drawing.Point(79, 74);
-            this.logoAtlantik.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoAtlantik.Margin = new System.Windows.Forms.Padding(4);
             this.logoAtlantik.Name = "logoAtlantik";
             this.logoAtlantik.Size = new System.Drawing.Size(476, 309);
             this.logoAtlantik.TabIndex = 0;
@@ -126,6 +126,7 @@
             this.btnAjouterTarifs.Name = "btnAjouterTarifs";
             this.btnAjouterTarifs.Size = new System.Drawing.Size(361, 26);
             this.btnAjouterTarifs.Text = "Les tarifs pour une liaison et une période";
+            this.btnAjouterTarifs.Click += new System.EventHandler(this.btnAjouterTarifs_Click);
             // 
             // btnAjouterBateau
             // 
@@ -197,7 +198,7 @@
             this.Controls.Add(this.logoAtlantik);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAccueil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atlantik - Accueil";

@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Liaison.cs" />
     <Compile Include="classes\Port.cs" />
     <Compile Include="classes\Secteur.cs" />
     <Compile Include="Form1.cs">
@@ -126,6 +127,12 @@
     <Compile Include="utilitaires\FormAjouterPort.Designer.cs">
       <DependentUpon>FormAjouterPort.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\FormAjouterTarifs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormAjouterTarifs.Designer.cs">
+      <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAjouterPort.resx">
       <DependentUpon>FormAjouterPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\FormAjouterTarifs.resx">
+      <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
