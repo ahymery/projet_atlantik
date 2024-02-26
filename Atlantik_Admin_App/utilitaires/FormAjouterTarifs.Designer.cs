@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjouterTarifs));
             this.gbxTarifs = new System.Windows.Forms.GroupBox();
             this.lbxSecteurs = new System.Windows.Forms.ListBox();
             this.lblSecteurs = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@
             this.Controls.Add(this.lblSecteurs);
             this.Controls.Add(this.lbxSecteurs);
             this.Controls.Add(this.gbxTarifs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAjouterTarifs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter les tarifs pour une liaison et une période";

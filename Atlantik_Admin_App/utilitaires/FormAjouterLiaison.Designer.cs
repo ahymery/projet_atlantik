@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjouterLiaison));
             this.gbxSecteur = new System.Windows.Forms.GroupBox();
             this.lbxSecteur = new System.Windows.Forms.ListBox();
             this.tbxDistance = new System.Windows.Forms.TextBox();
@@ -132,6 +133,7 @@
             this.Controls.Add(this.lblDepart);
             this.Controls.Add(this.gbxSecteur);
             this.Controls.Add(this.tbxDistance);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAjouterLiaison";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter une liaison";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjouterPort));
             this.btnAjouterUnPort = new System.Windows.Forms.Button();
             this.tbxAjouterPort = new System.Windows.Forms.TextBox();
             this.lblNomPort = new System.Windows.Forms.Label();
@@ -36,7 +37,7 @@
             // btnAjouterUnPort
             // 
             this.btnAjouterUnPort.Location = new System.Drawing.Point(105, 85);
-            this.btnAjouterUnPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAjouterUnPort.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouterUnPort.Name = "btnAjouterUnPort";
             this.btnAjouterUnPort.Size = new System.Drawing.Size(92, 27);
             this.btnAjouterUnPort.TabIndex = 0;
@@ -47,7 +48,7 @@
             // tbxAjouterPort
             // 
             this.tbxAjouterPort.Location = new System.Drawing.Point(140, 41);
-            this.tbxAjouterPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxAjouterPort.Margin = new System.Windows.Forms.Padding(4);
             this.tbxAjouterPort.Name = "tbxAjouterPort";
             this.tbxAjouterPort.Size = new System.Drawing.Size(132, 22);
             this.tbxAjouterPort.TabIndex = 1;
@@ -70,7 +71,8 @@
             this.Controls.Add(this.lblNomPort);
             this.Controls.Add(this.tbxAjouterPort);
             this.Controls.Add(this.btnAjouterUnPort);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAjouterPort";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un port";
