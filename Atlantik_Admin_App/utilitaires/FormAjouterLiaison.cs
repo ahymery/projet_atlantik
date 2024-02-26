@@ -1,7 +1,6 @@
 ﻿using Atlantik_Admin_App.classes;
 using MySql.Data.MySqlClient;
 using System;
-using System.Web;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -53,7 +52,8 @@ namespace Atlantik_Admin_App.utilitaires
                     cmbDepart.Items.Add(new Port(int.Parse(readDB["NOPORT"].ToString()), readDB["NOM"].ToString()));
                     cmbArrivee.Items.Add(new Port(int.Parse(readDB["NOPORT"].ToString()), readDB["NOM"].ToString()));
                 }
-            } 
+                oConnexion.Close();
+            }
             catch (MySqlException error)
             {
                 MessageBox.Show("Erreur : " + error.Message);
@@ -64,20 +64,29 @@ namespace Atlantik_Admin_App.utilitaires
         {
             try
             {
+                oConnexion.Open();
                 string requete = "INSERT INTO liaison(NOPORT_DEPART, NOSECTEUR, NOPORT_ARRIVEE, DISTANCE) VALUES (@NOPORT_DEPART, @NOSECTEUR, @NOPORT_ARRIVEE, @DISTANCE)";
                 var cmd = new MySqlCommand(requete, oConnexion);
+                Port DepartPort = (Port)cmbDepart.SelectedItem;
+                Port ArriveePort = (Port)cmbArrivee.SelectedItem;
+                Secteur noSecteur = (Secteur)lbxSecteur.SelectedItem;
 
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                cmd.Parameters.AddWithValue("@NOPORT_DEPART", DepartPort.GetId());
+                cmd.Parameters.AddWithValue("@NOSECTEUR", noSecteur.GetId());
+                cmd.Parameters.AddWithValue("@NOPORT_ARRIVEE", ArriveePort.GetId());
+                cmd.Parameters.AddWithValue("@DISTANCE", Convert.ToDouble(tbxDistance.Text));
+                int nb = cmd.ExecuteNonQuery();
+
+                if (nb > 0)
                 {
-                    cmd.Parameters.AddWithValue("@NOPORT_DEPART", ;
-                    cmd.Parameters.AddWithValue("@NOSECTEUR", );
-                    cmd.Parameters.AddWithValue("@NOPORT_ARRIVEE", );
-                    cmd.Parameters.AddWithValue("@DISTANCE", );
-                    MessageBox.Show("Ajout réussi.");
+                    MessageBox.Show("Ajout Réussi.");
                     Close();
                 }
-
+                else
+                {
+                    MessageBox.Show("Ajout échoué.");
+                }
+                oConnexion.Close();
             }
             catch (MySqlException error)
             {

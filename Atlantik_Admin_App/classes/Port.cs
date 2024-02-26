@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-namespace Atlantik_Admin_App.classes
-{
-    internal class Port
+    namespace Atlantik_Admin_App.classes
     {
-        private string nomPort;
-        private int idPort;
-
-        public Port(int idPort, string nomPort)
+        internal class Port
         {
-            this.nomPort = nomPort;
-            this.idPort = idPort;
-        }
+            private string nomPort;
+            private int idPort;
 
-        public int GetId()
-        {
-            return idPort;
-        }
+            public Port(int idPort, string nomPort)
+            {
+                this.nomPort = nomPort;
+                this.idPort = idPort;
+            }
 
-        public override string ToString()
-        {
-            return nomPort;
+            public int GetId()
+            {
+                return idPort;
+            }
+
+            public override string ToString()
+            {
+                return nomPort;
+            }
         }
     }
-}
