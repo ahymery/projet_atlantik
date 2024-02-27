@@ -39,21 +39,28 @@ namespace Atlantik_Admin_App.utilitaires
             }
 
             // try catch pour combo-box
-            /*
+
             try
             {
                 oConnexion.Open();
-                string requete = "SELECT * FROM liaison";
+                string requete = "SELECT *, p_dep.NOM AS NomPortDepart, p_arr.NOM AS NomPortArrivee, s.NOM AS NomSecteur FROM liaison l INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR WHERE s.NOSECTEUR = @NOSECTEUR;";
+                
+
                 var cmd = new MySqlCommand(requete, oConnexion);
                 cmd.CommandText = requete;
-
                 MySqlDataReader readDB = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("@NOSECTEUR", lbxSecteurs.SelectedItem);
                 while (readDB.Read())
                 {
-                    
+                    cmbLiaisons.Items.Add(new Liaison(int.Parse(readDB["NOSECTEUR"].ToString()), readDB["NomPortDepart"].ToString(), readDB["NomPortArrivee"].ToString()));
                 }
+            } 
+            catch (MySqlException error)
+            {
+                MessageBox.Show("Erreur : " + error.Message);
+            }
 
-                */
+              
 
             // textbox
 

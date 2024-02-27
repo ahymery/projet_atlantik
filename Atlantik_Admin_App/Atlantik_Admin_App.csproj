@@ -133,6 +133,12 @@
     <Compile Include="utilitaires\FormAjouterTarifs.Designer.cs">
       <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\FormAPropos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormAPropos.Designer.cs">
+      <DependentUpon>FormAPropos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAjouterTarifs.resx">
       <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\FormAPropos.resx">
+      <DependentUpon>FormAPropos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
