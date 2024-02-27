@@ -48,5 +48,11 @@ namespace Atlantik_Admin_App
             FormAjouterTarifs tarifs = new FormAjouterTarifs();
             tarifs.ShowDialog();
         }
+
+        private void btnAjouterBateau_Click(object sender, EventArgs e)
+        {
+            FormAjoutBateau bateau = new FormAjoutBateau();
+            bateau.ShowDialog();
+        }
     }
 }

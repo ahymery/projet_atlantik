@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjouterTarifs));
             this.gbxTarifs = new System.Windows.Forms.GroupBox();
+            this.lblTarifs = new System.Windows.Forms.Label();
             this.lbxSecteurs = new System.Windows.Forms.ListBox();
             this.lblSecteurs = new System.Windows.Forms.Label();
             this.lblLiaisons = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.lblPeriodes = new System.Windows.Forms.Label();
             this.cmbPeriodes = new System.Windows.Forms.ComboBox();
             this.btnAjouterTarifs = new System.Windows.Forms.Button();
-            this.lblTarifs = new System.Windows.Forms.Label();
             this.gbxTarifs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,16 @@
             this.gbxTarifs.TabIndex = 0;
             this.gbxTarifs.TabStop = false;
             this.gbxTarifs.Text = "Tarifs par Catégorie - Type";
+            this.gbxTarifs.Enter += new System.EventHandler(this.gbxTarifs_Enter);
+            // 
+            // lblTarifs
+            // 
+            this.lblTarifs.AutoSize = true;
+            this.lblTarifs.Location = new System.Drawing.Point(170, 36);
+            this.lblTarifs.Name = "lblTarifs";
+            this.lblTarifs.Size = new System.Drawing.Size(47, 16);
+            this.lblTarifs.TabIndex = 0;
+            this.lblTarifs.Text = "Tarifs :";
             // 
             // lbxSecteurs
             // 
@@ -113,15 +123,6 @@
             this.btnAjouterTarifs.TabIndex = 7;
             this.btnAjouterTarifs.Text = "Ajouter";
             this.btnAjouterTarifs.UseVisualStyleBackColor = true;
-            // 
-            // lblTarifs
-            // 
-            this.lblTarifs.AutoSize = true;
-            this.lblTarifs.Location = new System.Drawing.Point(170, 36);
-            this.lblTarifs.Name = "lblTarifs";
-            this.lblTarifs.Size = new System.Drawing.Size(47, 16);
-            this.lblTarifs.TabIndex = 0;
-            this.lblTarifs.Text = "Tarifs :";
             // 
             // FormAjouterTarifs
             // 

@@ -90,3 +90,4 @@ C:\Users\benar\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlanti
 C:\Users\benar\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterLiaison.resources
 C:\Users\benar\source\repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterTarifs.resources
 C:\Users\benar\source\repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAPropos.resources
+C:\Users\benar\source\repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjoutBateau.resources

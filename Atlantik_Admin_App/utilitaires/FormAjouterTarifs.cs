@@ -43,16 +43,25 @@ namespace Atlantik_Admin_App.utilitaires
             try
             {
                 oConnexion.Open();
-                string requete = "SELECT *, p_dep.NOM AS NomPortDepart, p_arr.NOM AS NomPortArrivee, s.NOM AS NomSecteur FROM liaison l INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR WHERE s.NOSECTEUR = @NOSECTEUR;";
-                
+                string requete = "SELECT *, " +
+                "p_dep.NOM AS NomPortDepart, " +
+                "p_arr.NOM AS NomPortArrivee, " +
+                "s.NOM AS NomSecteur " +
+                "FROM liaison l " +
+                "INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT " +
+                "INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT " +
+                "INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR " +
+                "WHERE s.NOSECTEUR = @NOSECTEUR;";
 
                 var cmd = new MySqlCommand(requete, oConnexion);
                 cmd.CommandText = requete;
+                var noSecteur = (Secteur)lbxSecteurs.SelectedItem;
+
                 MySqlDataReader readDB = cmd.ExecuteReader();
-                cmd.Parameters.AddWithValue("@NOSECTEUR", lbxSecteurs.SelectedItem);
+                cmd.Parameters.AddWithValue("@NOSECTEUR", noSecteur.GetId());
                 while (readDB.Read())
                 {
-                    cmbLiaisons.Items.Add(new Liaison(int.Parse(readDB["NOSECTEUR"].ToString()), readDB["NomPortDepart"].ToString(), readDB["NomPortArrivee"].ToString()));
+                    cmbLiaisons.Items.Add(new Liaison(int.Parse(readDB["@NOSECTEUR"].ToString()), readDB["NomPortDepart"].ToString(), readDB["NomPortArrivee"].ToString()));
                 }
             } 
             catch (MySqlException error)
@@ -72,6 +81,11 @@ namespace Atlantik_Admin_App.utilitaires
                 tbx.Location = new Point(130, i * 50);
                 gbxTarifs.Controls.Add(tbx);
             }
+        }
+
+        private void gbxTarifs_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

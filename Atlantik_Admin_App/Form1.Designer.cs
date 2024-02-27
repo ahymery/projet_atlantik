@@ -133,6 +133,7 @@
             this.btnAjouterBateau.Name = "btnAjouterBateau";
             this.btnAjouterBateau.Size = new System.Drawing.Size(361, 26);
             this.btnAjouterBateau.Text = "Un bateau";
+            this.btnAjouterBateau.Click += new System.EventHandler(this.btnAjouterBateau_Click);
             // 
             // btnAjouterTraversee
             // 

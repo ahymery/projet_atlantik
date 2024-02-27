@@ -11,13 +11,12 @@ using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
 {
-    public partial class FormAjouterPort : Form
+    public partial class FormAjoutBateau : Form
     {
         MySqlConnection oConnexion;
-        public FormAjouterPort()
+        public FormAjoutBateau()
         {
             InitializeComponent();
-
             oConnexion = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
@@ -29,22 +28,21 @@ namespace Atlantik_Admin_App.utilitaires
             }
         }
 
-        private void FormAjouterPort_Load(object sender, EventArgs e)
+        private void FormAjoutBateau_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnAjouterUnPort_Click(object sender, EventArgs e)
+        private void btnAjouter_Click(object sender, EventArgs e)
         {
-            string requete;
-            requete = "INSERT INTO port(NOM) VALUES (@NOMPORT)";
+            // Ajout du nom du bateau dans la table bateau
+            string requete = "INSERT INTO bateau(NOM) VALUES (@NOMBATEAU);";
             var cmd = new MySqlCommand(requete, oConnexion);
-            cmd.Parameters.AddWithValue("@NOMPORT", tbxAjouterPort.Text);
+            cmd.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text);
             int nb = cmd.ExecuteNonQuery();
             if (nb > 0)
             {
-                MessageBox.Show("Ajout réussi."); 
-                Close();
+                MessageBox.Show("Ajout réussi.");
             }
             else
             {
