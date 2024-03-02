@@ -183,6 +183,7 @@
             this.btnAfficherDetails.Name = "btnAfficherDetails";
             this.btnAfficherDetails.Size = new System.Drawing.Size(741, 26);
             this.btnAfficherDetails.Text = "Les détails d\'une réservation pour un client";
+            this.btnAfficherDetails.Click += new System.EventHandler(this.btnAfficherDetails_Click);
             // 
             // btnAPropos
             // 

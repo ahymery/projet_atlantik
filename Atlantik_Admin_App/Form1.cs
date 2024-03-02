@@ -54,5 +54,11 @@ namespace Atlantik_Admin_App
             FormAjoutBateau bateau = new FormAjoutBateau();
             bateau.ShowDialog();
         }
+
+        private void btnAfficherDetails_Click(object sender, EventArgs e)
+        {
+            FormAfficherReservations reservations = new FormAfficherReservations();
+            reservations.ShowDialog();
+        }
     }
 }

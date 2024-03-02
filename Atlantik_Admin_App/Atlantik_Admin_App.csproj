@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Client.cs" />
     <Compile Include="classes\Liaison.cs" />
     <Compile Include="classes\Port.cs" />
     <Compile Include="classes\Secteur.cs" />
@@ -109,6 +110,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utilitaires\FormAfficherReservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormAfficherReservations.Designer.cs">
+      <DependentUpon>FormAfficherReservations.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilitaires\FormAjoutBateau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="utilitaires\FormAfficherReservations.resx">
+      <DependentUpon>FormAfficherReservations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAjoutBateau.resx">
       <DependentUpon>FormAjoutBateau.cs</DependentUpon>
     </EmbeddedResource>
