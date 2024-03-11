@@ -75,17 +75,32 @@ namespace Atlantik_Admin_App.utilitaires
 
             TextBox tbx;
             int i;
-            for (i = 1; i <= 5; i++)
+            for (i = 1; i <= 8; i++)
             {
                 tbx = new TextBox();
-                tbx.Location = new Point(130, i * 50);
+                tbx.Location = new Point(120, i * 35);
                 gbxTarifs.Controls.Add(tbx);
             }
-        }
 
-        private void gbxTarifs_Enter(object sender, EventArgs e)
-        {
+            // labels
 
+            try
+            {
+                string requete = "SELECT * FROM type;";
+                MySqlDataReader dbReader;
+                Categorie_Types categorietypes = new Categorie_Types("@LETTRECATEGORIE", "@NOTYPE", "@LIBELLE");
+                var cmd = new MySqlCommand(requete, oConnexion);
+                cmd.CommandText = requete;
+                cmd.Parameters.Add("@LETTRECATEGORIE", dbReader["LETTRECATEGORIE"]);
+                for(i = 1; i <= 8; i++)
+                {
+
+                }
+            } 
+            catch (MySqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
     }
 

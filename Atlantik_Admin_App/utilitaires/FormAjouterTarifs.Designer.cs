@@ -46,89 +46,97 @@
             this.gbxTarifs.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.gbxTarifs.Controls.Add(this.lblTarifs);
             this.gbxTarifs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gbxTarifs.Location = new System.Drawing.Point(208, 12);
+            this.gbxTarifs.Location = new System.Drawing.Point(156, 6);
+            this.gbxTarifs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbxTarifs.Name = "gbxTarifs";
-            this.gbxTarifs.Size = new System.Drawing.Size(314, 385);
+            this.gbxTarifs.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxTarifs.Size = new System.Drawing.Size(236, 317);
             this.gbxTarifs.TabIndex = 0;
             this.gbxTarifs.TabStop = false;
             this.gbxTarifs.Text = "Tarifs par Catégorie - Type";
-            this.gbxTarifs.Enter += new System.EventHandler(this.gbxTarifs_Enter);
             // 
             // lblTarifs
             // 
             this.lblTarifs.AutoSize = true;
-            this.lblTarifs.Location = new System.Drawing.Point(170, 36);
+            this.lblTarifs.Location = new System.Drawing.Point(115, 18);
+            this.lblTarifs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTarifs.Name = "lblTarifs";
-            this.lblTarifs.Size = new System.Drawing.Size(47, 16);
+            this.lblTarifs.Size = new System.Drawing.Size(39, 13);
             this.lblTarifs.TabIndex = 0;
             this.lblTarifs.Text = "Tarifs :";
             // 
             // lbxSecteurs
             // 
             this.lbxSecteurs.FormattingEnabled = true;
-            this.lbxSecteurs.ItemHeight = 16;
-            this.lbxSecteurs.Location = new System.Drawing.Point(26, 62);
+            this.lbxSecteurs.Location = new System.Drawing.Point(20, 50);
+            this.lbxSecteurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbxSecteurs.Name = "lbxSecteurs";
-            this.lbxSecteurs.Size = new System.Drawing.Size(143, 196);
+            this.lbxSecteurs.Size = new System.Drawing.Size(108, 160);
             this.lbxSecteurs.TabIndex = 1;
             // 
             // lblSecteurs
             // 
             this.lblSecteurs.AutoSize = true;
-            this.lblSecteurs.Location = new System.Drawing.Point(23, 29);
+            this.lblSecteurs.Location = new System.Drawing.Point(17, 24);
+            this.lblSecteurs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSecteurs.Name = "lblSecteurs";
-            this.lblSecteurs.Size = new System.Drawing.Size(66, 16);
+            this.lblSecteurs.Size = new System.Drawing.Size(55, 13);
             this.lblSecteurs.TabIndex = 2;
             this.lblSecteurs.Text = "Secteurs :";
             // 
             // lblLiaisons
             // 
             this.lblLiaisons.AutoSize = true;
-            this.lblLiaisons.Location = new System.Drawing.Point(23, 277);
+            this.lblLiaisons.Location = new System.Drawing.Point(17, 225);
+            this.lblLiaisons.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLiaisons.Name = "lblLiaisons";
-            this.lblLiaisons.Size = new System.Drawing.Size(63, 16);
+            this.lblLiaisons.Size = new System.Drawing.Size(51, 13);
             this.lblLiaisons.TabIndex = 3;
             this.lblLiaisons.Text = "Liaisons :";
             // 
             // cmbLiaisons
             // 
             this.cmbLiaisons.FormattingEnabled = true;
-            this.cmbLiaisons.Location = new System.Drawing.Point(26, 307);
+            this.cmbLiaisons.Location = new System.Drawing.Point(20, 249);
+            this.cmbLiaisons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbLiaisons.Name = "cmbLiaisons";
-            this.cmbLiaisons.Size = new System.Drawing.Size(143, 24);
+            this.cmbLiaisons.Size = new System.Drawing.Size(108, 21);
             this.cmbLiaisons.TabIndex = 4;
             // 
             // lblPeriodes
             // 
             this.lblPeriodes.AutoSize = true;
-            this.lblPeriodes.Location = new System.Drawing.Point(23, 434);
+            this.lblPeriodes.Location = new System.Drawing.Point(17, 353);
+            this.lblPeriodes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPeriodes.Name = "lblPeriodes";
-            this.lblPeriodes.Size = new System.Drawing.Size(64, 16);
+            this.lblPeriodes.Size = new System.Drawing.Size(52, 13);
             this.lblPeriodes.TabIndex = 5;
             this.lblPeriodes.Text = "Période : ";
             // 
             // cmbPeriodes
             // 
             this.cmbPeriodes.FormattingEnabled = true;
-            this.cmbPeriodes.Location = new System.Drawing.Point(101, 431);
+            this.cmbPeriodes.Location = new System.Drawing.Point(76, 350);
+            this.cmbPeriodes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbPeriodes.Name = "cmbPeriodes";
-            this.cmbPeriodes.Size = new System.Drawing.Size(211, 24);
+            this.cmbPeriodes.Size = new System.Drawing.Size(159, 21);
             this.cmbPeriodes.TabIndex = 6;
             // 
             // btnAjouterTarifs
             // 
-            this.btnAjouterTarifs.Location = new System.Drawing.Point(365, 423);
+            this.btnAjouterTarifs.Location = new System.Drawing.Point(274, 344);
+            this.btnAjouterTarifs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAjouterTarifs.Name = "btnAjouterTarifs";
-            this.btnAjouterTarifs.Size = new System.Drawing.Size(127, 34);
+            this.btnAjouterTarifs.Size = new System.Drawing.Size(95, 28);
             this.btnAjouterTarifs.TabIndex = 7;
             this.btnAjouterTarifs.Text = "Ajouter";
             this.btnAjouterTarifs.UseVisualStyleBackColor = true;
             // 
             // FormAjouterTarifs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 478);
+            this.ClientSize = new System.Drawing.Size(400, 388);
             this.Controls.Add(this.btnAjouterTarifs);
             this.Controls.Add(this.cmbPeriodes);
             this.Controls.Add(this.lblPeriodes);
@@ -138,6 +146,7 @@
             this.Controls.Add(this.lbxSecteurs);
             this.Controls.Add(this.gbxTarifs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormAjouterTarifs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter les tarifs pour une liaison et une période";
