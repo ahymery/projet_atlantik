@@ -63,44 +63,52 @@ namespace Atlantik_Admin_App.utilitaires
                 {
                     cmbLiaisons.Items.Add(new Liaison(int.Parse(readDB["@NOSECTEUR"].ToString()), readDB["NomPortDepart"].ToString(), readDB["NomPortArrivee"].ToString()));
                 }
-            } 
+                oConnexion.Close();
+            }
             catch (MySqlException error)
             {
                 MessageBox.Show("Erreur : " + error.Message);
             }
 
-              
+            // textbox & labels
 
-            // textbox
-
-            TextBox tbx;
             int i;
-            for (i = 1; i <= 8; i++)
-            {
-                tbx = new TextBox();
-                tbx.Location = new Point(120, i * 35);
-                gbxTarifs.Controls.Add(tbx);
-            }
-
-            // labels
-
             try
             {
-                string requete = "SELECT * FROM type;";
-                MySqlDataReader dbReader;
-                Categorie_Types categorietypes = new Categorie_Types("@LETTRECATEGORIE", "@NOTYPE", "@LIBELLE");
-                var cmd = new MySqlCommand(requete, oConnexion);
-                cmd.CommandText = requete;
-                cmd.Parameters.Add("@LETTRECATEGORIE", dbReader["LETTRECATEGORIE"]);
-                for(i = 1; i <= 8; i++)
-                {
+                Label lbl;
+                TextBox tbx;
 
+                string categorie = "SELECT * FROM type;";
+
+                var cmd = new MySqlCommand(categorie, oConnexion);
+
+                cmd.CommandText = categorie;
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                for(i = 1; i <= 8; i = i + 1)
+                {
+                    reader.Read();
+                    lbl = new Label();
+                    lbl.Text = reader["LETTRECATEGORIE"].ToString() + reader["NOTYPE"].ToString() + " - " + reader["LIBELLE"].ToString();
+                    lbl.Location = new Point(15, i * 36);
+                    gbxTarifs.Controls.Add(lbl);
+
+                    tbx = new TextBox();
+                    tbx.Tag = reader["LETTRECATEGORIE"].ToString() + ";" + reader["NOTYPE"].ToString();
+                    tbx.Location = new Point(120, i * 36);
+                    gbxTarifs.Controls.Add(tbx);
                 }
-            } 
-            catch (MySqlException error)
-            {
-                MessageBox.Show(error.Message);
             }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAjouterTarifs_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 
