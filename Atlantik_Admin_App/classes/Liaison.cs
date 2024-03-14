@@ -19,10 +19,9 @@ namespace Atlantik_Admin_App.classes
             this.idLiaison = idLiaison;
         }
 
-        public int GetId()
-        {
-            return idLiaison;
-        }
+        public int GetId() { return idLiaison; }
+        public string GetNomDepart() { return nomSecteurDepart; }
+        public string GetNomArrivee() { return  nomSecteurArrivee; }
 
         public override string ToString()
         {
