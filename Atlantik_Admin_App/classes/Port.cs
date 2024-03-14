@@ -22,6 +22,8 @@
                 return idPort;
             }
 
+            public string GetNomPort() { return nomPort; }
+
             public override string ToString()
             {
                 return nomPort;

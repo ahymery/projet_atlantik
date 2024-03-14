@@ -119,15 +119,15 @@
             this.cmbPeriodes.Location = new System.Drawing.Point(76, 350);
             this.cmbPeriodes.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPeriodes.Name = "cmbPeriodes";
-            this.cmbPeriodes.Size = new System.Drawing.Size(159, 21);
+            this.cmbPeriodes.Size = new System.Drawing.Size(234, 21);
             this.cmbPeriodes.TabIndex = 6;
             // 
             // btnAjouterTarifs
             // 
-            this.btnAjouterTarifs.Location = new System.Drawing.Point(274, 344);
+            this.btnAjouterTarifs.Location = new System.Drawing.Point(324, 344);
             this.btnAjouterTarifs.Margin = new System.Windows.Forms.Padding(2);
             this.btnAjouterTarifs.Name = "btnAjouterTarifs";
-            this.btnAjouterTarifs.Size = new System.Drawing.Size(95, 28);
+            this.btnAjouterTarifs.Size = new System.Drawing.Size(65, 27);
             this.btnAjouterTarifs.TabIndex = 7;
             this.btnAjouterTarifs.Text = "Ajouter";
             this.btnAjouterTarifs.UseVisualStyleBackColor = true;
