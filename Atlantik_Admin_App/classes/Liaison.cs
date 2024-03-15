@@ -8,23 +8,24 @@ namespace Atlantik_Admin_App.classes
 {
     internal class Liaison
     {
-        private string nomPortDepart;
-        private string nomPortArrivee;
-        private int idSecteur;
+        private string NomPortDepart;
+        private string NomPortArrivee;
+        private int idLiaison;
 
-        public Liaison(int idSecteur, string nomPortDepart, string nomPortArrivee)
+        public Liaison(int idLiaison, string NomPortDepart, string NomPortArrivee)
         {
-            this.nomPortDepart = nomPortDepart;
-            this.nomPortArrivee = nomPortArrivee;
-            this.idSecteur = idSecteur;
+            this.NomPortDepart = NomPortDepart;
+            this.NomPortArrivee = NomPortArrivee;
+            this.idLiaison = idLiaison;
         }
 
-        public int GetId() { return idSecteur; }
-        public string GetNomPortDepart() { return nomPortDepart; }
-        public string GetNomPortArrivee() { return  nomPortArrivee; }
+        public int GetId() { return idLiaison; }
+        public string GetNomPortDepart() { return NomPortDepart; }
+        public string GetNomPortArrivee() { return  NomPortArrivee; }
+
         public override string ToString()
         {
-            return nomPortDepart + " - " + nomPortArrivee;
+            return NomPortDepart + " - " + NomPortArrivee;
         }
     }
 }

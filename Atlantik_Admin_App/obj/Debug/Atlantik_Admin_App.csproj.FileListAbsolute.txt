@@ -190,3 +190,4 @@ C:\Users\eleve\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlanti
 C:\Users\eleve\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.CopyComplete
 C:\Users\eleve\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.exe
 C:\Users\eleve\Source\Repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.pdb
+C:\Users\eleve\source\repos\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormModifierBateau.resources

@@ -60,5 +60,11 @@ namespace Atlantik_Admin_App
             FormAfficherReservations reservations = new FormAfficherReservations();
             reservations.ShowDialog();
         }
+
+        private void btnModifierBateau_Click(object sender, EventArgs e)
+        {
+            FormModifierBateau modifier = new FormModifierBateau();
+            modifier.ShowDialog();
+        }
     }
 }

@@ -36,9 +36,12 @@ namespace Atlantik_Admin_App.utilitaires
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             // Ajout du nom du bateau dans la table bateau
-            string requete = "INSERT INTO bateau(NOM) VALUES (@NOMBATEAU);";
+            string requete = "INSERT INTO contenir(CAPACITEMAX) SELECT LETTRECATEGORIE LIKE '%A%';";
             var cmd = new MySqlCommand(requete, oConnexion);
             cmd.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text);
+            cmd.Parameters.AddWithValue("@CATEGORIEA", tbxCategorieA.Text);
+            cmd.Parameters.AddWithValue("@CATEGORIEB", tbxCategorieB.Text);
+            cmd.Parameters.AddWithValue("@CATEGORIEC", tbxCategorieC.Text);
             int nb = cmd.ExecuteNonQuery();
             if (nb > 0)
             {

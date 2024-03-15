@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Bateaux.cs" />
     <Compile Include="classes\Client.cs" />
     <Compile Include="classes\Liaison.cs" />
     <Compile Include="classes\Periodes.cs" />
@@ -153,6 +154,12 @@
     <Compile Include="utilitaires\FormAPropos.Designer.cs">
       <DependentUpon>FormAPropos.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\FormModifierBateau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormModifierBateau.Designer.cs">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAPropos.resx">
       <DependentUpon>FormAPropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\FormModifierBateau.resx">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
