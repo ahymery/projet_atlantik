@@ -49,8 +49,10 @@ namespace Atlantik_Admin_App.utilitaires
             //  Faire en sorte que le text de la capacité Maximale affiche dans les textbox en cliquant sur un nom du bateau dans le ComboBox
             try
             {
-
-                string requete = "SELECT * FROM contenir INNER JOIN bateau ON (bateau.NOBATEAU = contenir.NOBATEAU) WHERE bateau.NOBATEAU = @NOBATEAU;";
+                string requete = "SELECT * FROM contenir " +
+                    "INNER JOIN bateau ON (bateau.NOBATEAU = contenir.NOBATEAU) " +
+                    "INNER JOIN categorie ON (categorie.LETTRECATEGORIE = contenir.LETTRECATEGORIE) " +
+                    "WHERE bateau.NOBATEAU = @NOBATEAU;";
 
                 var cmd = new MySqlCommand(requete, oConnexion);
 
@@ -59,15 +61,15 @@ namespace Atlantik_Admin_App.utilitaires
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
-                {
-                    tbxCategorieA.Text = reader["contenir.CAPACITEMAX"].ToString();
-                    tbxCategorieB.Text = reader["contenir.CAPACITEMAX"].ToString();
-                    tbxCategorieC.Text = reader["contenir.CAPACITEMAX"].ToString();
+                {                                     
+                        tbxCategorieA.Text = reader["CAPACITEMAX"].ToString();
+                        tbxCategorieB.Text = reader["CAPACITEMAX"].ToString();
+                        tbxCategorieC.Text = reader["CAPACITEMAX"].ToString();        
                 }
             }
             catch (MySqlException error)
             {
-                MessageBox.Show("Erreur : " +  error.Message);
+                MessageBox.Show("Erreur : " + error.Message);
             }
             finally { oConnexion.Close(); }
         }

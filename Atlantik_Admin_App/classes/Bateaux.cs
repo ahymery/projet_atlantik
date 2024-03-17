@@ -19,6 +19,7 @@ namespace Atlantik_Admin_App.classes
 
         public int getNoBateau() { return noBateau; }
 
+        
         public override string ToString() { return nomBateau; }
     }
 }

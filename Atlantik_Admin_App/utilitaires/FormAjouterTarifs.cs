@@ -9,7 +9,6 @@ namespace Atlantik_Admin_App.utilitaires
     public partial class FormAjouterTarifs : Form
     {
         private MySqlConnection oConnexion = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
-        private MySqlDataReader reader = null;
         public FormAjouterTarifs()
         {
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace Atlantik_Admin_App.utilitaires
                 var cmd = new MySqlCommand(requete, oConnexion);
                 cmd.CommandText = requete;
 
-                reader = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
                 
                 while (reader.Read())
                 {
@@ -102,7 +101,7 @@ namespace Atlantik_Admin_App.utilitaires
                 var cmd = new MySqlCommand(requete, oConnexion);
                 cmd.CommandText = requete;
                 cmd.ExecuteNonQuery();
-                reader = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     cmbPeriodes.Items.Add(new Periodes(reader["DATEDEBUT"].ToString(), reader["DATEFIN"].ToString()));
@@ -145,7 +144,7 @@ namespace Atlantik_Admin_App.utilitaires
 
                 cmd.Parameters.AddWithValue("@NOSECTEUR", ((Secteur)lbxSecteurs.SelectedItem).GetId());
 
-                reader = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
