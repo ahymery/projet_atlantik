@@ -35,19 +35,8 @@ namespace Atlantik_Admin_App.utilitaires
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            // Ajout du nom du bateau dans la table bateau
-            string requete = "INSERT INTO contenir(CAPACITEMAX);";
-            var cmd = new MySqlCommand(requete, oConnexion);
-            cmd.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text);
-            int nb = cmd.ExecuteNonQuery();
-            if (nb > 0)
-            {
-                MessageBox.Show("Ajout réussi.");
-            }
-            else
-            {
-                MessageBox.Show("Aucune ligne n'a été affecté.");
-            }
+            
+            
         }
     }
 }
