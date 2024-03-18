@@ -46,6 +46,7 @@
             this.btnAfficherTraversee = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAfficherDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAPropos = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterTarifsformDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoAtlantik)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -152,14 +153,14 @@
             // btnModifierBateau
             // 
             this.btnModifierBateau.Name = "btnModifierBateau";
-            this.btnModifierBateau.Size = new System.Drawing.Size(180, 22);
+            this.btnModifierBateau.Size = new System.Drawing.Size(153, 22);
             this.btnModifierBateau.Text = "Un bateau";
             this.btnModifierBateau.Click += new System.EventHandler(this.btnModifierBateau_Click);
             // 
             // btnParametres
             // 
             this.btnParametres.Name = "btnParametres";
-            this.btnParametres.Size = new System.Drawing.Size(180, 22);
+            this.btnParametres.Size = new System.Drawing.Size(153, 22);
             this.btnParametres.Text = "Les paramètres";
             // 
             // btnAfficher
@@ -187,6 +188,8 @@
             // 
             // btnAPropos
             // 
+            this.btnAPropos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterTarifsformDeTestToolStripMenuItem});
             this.btnAPropos.Name = "btnAPropos";
             this.btnAPropos.Size = new System.Drawing.Size(67, 20);
             this.btnAPropos.Text = "A propos";
@@ -232,6 +235,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnAfficherTraversee;
         private System.Windows.Forms.ToolStripMenuItem btnAfficherDetails;
         private System.Windows.Forms.ToolStripMenuItem btnAPropos;
+        private System.Windows.Forms.ToolStripMenuItem ajouterTarifsformDeTestToolStripMenuItem;
     }
 }
 

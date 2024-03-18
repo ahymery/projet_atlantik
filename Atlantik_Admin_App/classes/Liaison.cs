@@ -20,8 +20,8 @@ namespace Atlantik_Admin_App.classes
         }
 
         public int GetId() { return idLiaison; }
-        public string GetNomPortDepart() { return NomPortDepart; }
-        public string GetNomPortArrivee() { return  NomPortArrivee; }
+        public string GetNoPortDepart() { return NomPortDepart; }
+        public string GetNoPortArrivee() { return  NomPortArrivee; }
 
         public override string ToString()
         {

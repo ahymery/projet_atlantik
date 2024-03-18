@@ -100,7 +100,7 @@
             this.cmbLiaisons.Location = new System.Drawing.Point(20, 249);
             this.cmbLiaisons.Margin = new System.Windows.Forms.Padding(2);
             this.cmbLiaisons.Name = "cmbLiaisons";
-            this.cmbLiaisons.Size = new System.Drawing.Size(108, 21);
+            this.cmbLiaisons.Size = new System.Drawing.Size(132, 21);
             this.cmbLiaisons.TabIndex = 4;
             // 
             // lblPeriodes
