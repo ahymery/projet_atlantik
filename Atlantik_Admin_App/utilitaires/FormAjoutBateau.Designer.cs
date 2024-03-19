@@ -33,27 +33,27 @@
             this.lblCategorieC = new System.Windows.Forms.Label();
             this.lblCategorieB = new System.Windows.Forms.Label();
             this.lblCategorieA = new System.Windows.Forms.Label();
-            this.tbxCategorieC = new System.Windows.Forms.TextBox();
-            this.tbxCategorieB = new System.Windows.Forms.TextBox();
-            this.tbxCategorieA = new System.Windows.Forms.TextBox();
             this.tbxNomBateau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
+            this.tbxCategorieC = new System.Windows.Forms.TextBox();
+            this.tbxCategorieB = new System.Windows.Forms.TextBox();
+            this.tbxCategorieA = new System.Windows.Forms.TextBox();
             this.gbxCapaMax.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxCapaMax
             // 
-            this.gbxCapaMax.Controls.Add(this.lblCategorieC);
-            this.gbxCapaMax.Controls.Add(this.lblCategorieB);
-            this.gbxCapaMax.Controls.Add(this.lblCategorieA);
             this.gbxCapaMax.Controls.Add(this.tbxCategorieC);
             this.gbxCapaMax.Controls.Add(this.tbxCategorieB);
             this.gbxCapaMax.Controls.Add(this.tbxCategorieA);
+            this.gbxCapaMax.Controls.Add(this.lblCategorieC);
+            this.gbxCapaMax.Controls.Add(this.lblCategorieB);
+            this.gbxCapaMax.Controls.Add(this.lblCategorieA);
             this.gbxCapaMax.Location = new System.Drawing.Point(208, 10);
-            this.gbxCapaMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCapaMax.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCapaMax.Name = "gbxCapaMax";
-            this.gbxCapaMax.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCapaMax.Padding = new System.Windows.Forms.Padding(2);
             this.gbxCapaMax.Size = new System.Drawing.Size(224, 255);
             this.gbxCapaMax.TabIndex = 0;
             this.gbxCapaMax.TabStop = false;
@@ -89,34 +89,10 @@
             this.lblCategorieA.TabIndex = 3;
             this.lblCategorieA.Text = "A (Passager) :";
             // 
-            // tbxCategorieC
-            // 
-            this.tbxCategorieC.Location = new System.Drawing.Point(116, 206);
-            this.tbxCategorieC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxCategorieC.Name = "tbxCategorieC";
-            this.tbxCategorieC.Size = new System.Drawing.Size(104, 20);
-            this.tbxCategorieC.TabIndex = 2;
-            // 
-            // tbxCategorieB
-            // 
-            this.tbxCategorieB.Location = new System.Drawing.Point(116, 114);
-            this.tbxCategorieB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxCategorieB.Name = "tbxCategorieB";
-            this.tbxCategorieB.Size = new System.Drawing.Size(104, 20);
-            this.tbxCategorieB.TabIndex = 1;
-            // 
-            // tbxCategorieA
-            // 
-            this.tbxCategorieA.Location = new System.Drawing.Point(116, 38);
-            this.tbxCategorieA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxCategorieA.Name = "tbxCategorieA";
-            this.tbxCategorieA.Size = new System.Drawing.Size(104, 20);
-            this.tbxCategorieA.TabIndex = 0;
-            // 
             // tbxNomBateau
             // 
             this.tbxNomBateau.Location = new System.Drawing.Point(100, 28);
-            this.tbxNomBateau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxNomBateau.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNomBateau.Name = "tbxNomBateau";
             this.tbxNomBateau.Size = new System.Drawing.Size(104, 20);
             this.tbxNomBateau.TabIndex = 3;
@@ -134,13 +110,37 @@
             // btnAjouter
             // 
             this.btnAjouter.Location = new System.Drawing.Point(15, 246);
-            this.btnAjouter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(2);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(181, 19);
             this.btnAjouter.TabIndex = 7;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // tbxCategorieC
+            // 
+            this.tbxCategorieC.Location = new System.Drawing.Point(104, 209);
+            this.tbxCategorieC.Name = "tbxCategorieC";
+            this.tbxCategorieC.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieC.TabIndex = 8;
+            this.tbxCategorieC.Tag = "C";
+            // 
+            // tbxCategorieB
+            // 
+            this.tbxCategorieB.Location = new System.Drawing.Point(104, 117);
+            this.tbxCategorieB.Name = "tbxCategorieB";
+            this.tbxCategorieB.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieB.TabIndex = 7;
+            this.tbxCategorieB.Tag = "B";
+            // 
+            // tbxCategorieA
+            // 
+            this.tbxCategorieA.Location = new System.Drawing.Point(104, 41);
+            this.tbxCategorieA.Name = "tbxCategorieA";
+            this.tbxCategorieA.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieA.TabIndex = 6;
+            this.tbxCategorieA.Tag = "A";
             // 
             // FormAjoutBateau
             // 
@@ -152,7 +152,7 @@
             this.Controls.Add(this.tbxNomBateau);
             this.Controls.Add(this.gbxCapaMax);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAjoutBateau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un bateau";
@@ -167,14 +167,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbxCapaMax;
-        private System.Windows.Forms.TextBox tbxCategorieC;
-        private System.Windows.Forms.TextBox tbxCategorieB;
-        private System.Windows.Forms.TextBox tbxCategorieA;
         private System.Windows.Forms.TextBox tbxNomBateau;
         private System.Windows.Forms.Label lblCategorieB;
         private System.Windows.Forms.Label lblCategorieA;
         private System.Windows.Forms.Label lblCategorieC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.TextBox tbxCategorieC;
+        private System.Windows.Forms.TextBox tbxCategorieB;
+        private System.Windows.Forms.TextBox tbxCategorieA;
     }
 }

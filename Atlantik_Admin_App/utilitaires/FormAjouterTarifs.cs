@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -149,44 +150,38 @@ namespace Atlantik_Admin_App.utilitaires
 
         private void btnAjouterTarifs_Click(object sender, EventArgs e)
         {
-            try
+            foreach (TextBox tarifs in gbxTarifs.Controls.OfType<TextBox>())
             {
-                oConnexion.Open();
-                string requete = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON) VALUES (@NOPERIODE, @LETTRECATEGORIE, @NOTYPE, @NOLIAISONARIF);";
-                var cmd = new MySqlCommand(requete, oConnexion);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                cmd.Parameters.AddWithValue("@NOPERIODE", int.Parse(((Periodes)cmbPeriodes.SelectedItem).getNoPeriode().ToString()));
-                cmd.Parameters.AddWithValue("@LETTRECATEGORIE", reader["LETTRECATEGORIE"].ToString());
-                cmd.Parameters.AddWithValue("@NOTYPE", int.Parse(reader["NOTYPE"].ToString()));
-                cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
-                
-
-
-                int nb = cmd.ExecuteNonQuery();
-
-                if (nb > 0)
+                try
                 {
-                    MessageBox.Show("Ajout Réussi.");
+                    oConnexion.Open();
+                    string requete = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) VALUES (@NOPERIODE, @LETTRECATEGORIE, @NOTYPE, @NOLIAISON, @TARIF);";
+                    var cmd = new MySqlCommand(requete, oConnexion);
+
+                    // Split des tags des Textbox générées précédemment
+
+                    string categorie = tarifs.Tag.ToString();
+                    string[] tag;
+                    tag = categorie.Split(';');
+
+                    cmd.Parameters.AddWithValue("@NOPERIODE", int.Parse(((Periodes)cmbPeriodes.SelectedItem).getNoPeriode().ToString()));
+                    cmd.Parameters.AddWithValue("@LETTRECATEGORIE", tag[0].ToString());
+                    cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
+                    cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
+                    cmd.Parameters.AddWithValue("@TARIF", Convert.ToDouble(tarifs.Text.ToString()));
+                    cmd.ExecuteNonQuery();
                 }
-                else
+                catch (MySqlException ex)
                 {
-                    MessageBox.Show("Ajout échoué");
+                    MessageBox.Show("Erreur : " + ex.Message);
                 }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur : " + ex.Message);
-            }
-            finally
-            {
-                oConnexion.Close();
-                MessageBox.Show("Id Secteur : " + ((Secteur)lbxSecteurs.SelectedItem).GetId().ToString() + " " +
-                    "/ Id Liaison : " + ((Liaison)cmbLiaisons.SelectedItem).GetId().ToString() + " " +
-                    "/  Id periodes : " + ((Periodes)cmbPeriodes.SelectedItem).getNoPeriode().ToString());
+                finally
+                {
+                    MessageBox.Show("Ajout réussi !", "Réussite", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    oConnexion.Close();
+                }
             }
         }
-
     }
 
 }
