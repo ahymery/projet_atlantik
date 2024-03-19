@@ -8,7 +8,6 @@ namespace Atlantik_Admin_App.utilitaires
     public partial class FormAjoutBateau : Form
     {
         MySqlConnection oConnexion;
-        MySqlDataReader reader;
         public FormAjoutBateau()
         {
             InitializeComponent();
@@ -31,47 +30,46 @@ namespace Atlantik_Admin_App.utilitaires
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
+            
             foreach (TextBox bateau in gbxCapaMax.Controls.OfType<TextBox>())
             {
                 try
                 {
                     oConnexion.Open();
 
-                    // Récupération du numéro de bateau afin de l'ajouter dans la table contenir
+                    // Récupération du numéro bateau afin de l'ajouter dans la table contenir
 
-                    string nobateau = "SELECT NOBATEAU FROM bateau GROUP BY NOBATEAU DESC;";
+                    string requete = "SELECT b.NOBATEAU FROM bateau b;";
 
-                    var cmd_nobateau = new MySqlCommand(nobateau, oConnexion);
+                    var cmd_nobateau = new MySqlCommand(requete, oConnexion);
 
-                    reader = cmd_nobateau.ExecuteReader();
+                    MySqlDataReader reader = cmd_nobateau.ExecuteReader();
+
+                    reader.Read();
+
+                    int nobateau = int.Parse(reader["NOBATEAU"].ToString());
+                    
+                    reader.Close();
 
                     // 1ere requete permettant l'insertion des capacités maximales saisis dans les textbox
 
-                    string insert_contenir = "INSERT INTO contenir(LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@LETTRECATEGORIE, NOBATEAU, CAPACIEMAX);";
+                    string insert_contenir = "INSERT INTO contenir(LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@LETTRECATEGORIE, @NOBATEAU, @CAPACITEMAX);";
 
                     var cmd_contenir = new MySqlCommand(insert_contenir, oConnexion);
 
                     // Récupération des tags des textbox
+                    
                     string categorie = bateau.Tag.ToString();
+
                     // instanciation des paramètres
                     cmd_contenir.Parameters.AddWithValue("@LETTRECATEGORIE", categorie);
 
-                    cmd_contenir.Parameters.AddWithValue("@NOBATEAU", int.Parse(reader["NOBATEAU"].ToString()) + 1);
+                    cmd_contenir.Parameters.AddWithValue("@NOBATEAU", nobateau + 1);
 
                     cmd_contenir.Parameters.AddWithValue("@CAPACITEMAX", int.Parse(bateau.Text.ToString()));
 
+
                     cmd_contenir.ExecuteNonQuery();
-
-
-                    // 2ème requete d'insertion permettant l'ajout du nom du bateau dans la table bateau
-
-                    string insert_nombateau = "INSERT INTO bateau(NOM) VALUES (@NOMBATEAU);";
-
-                    var cmd_nombateau = new MySqlCommand(insert_nombateau, oConnexion);
-
-                    cmd_nombateau.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text.ToString());
-
-                    cmd_nombateau.ExecuteNonQuery();
                 }
                 catch (MySqlException ex)
                 {
@@ -80,8 +78,11 @@ namespace Atlantik_Admin_App.utilitaires
                 finally
                 {
                     oConnexion.Close();
-                }
+                }     
+                
+
             }
+
         }
     }
 }
