@@ -70,8 +70,38 @@ namespace Atlantik_Admin_App.utilitaires
                 MessageBox.Show("Erreur : " + error.Message);
             }
             finally { oConnexion.Close(); }
-            // TRY-CATCH du combo-box des liaison
+        }
 
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                oConnexion.Open();
+                string requete = "INSERT INTO traversee(NOLIAISON, NOBATEAU, DATEHEUREDEPART, DATEHEUREARRIVEE) VALUES(@NOLIAISON, @NOBATEAU, @DATEHEUREDEPART, @DATEHEUREARRIVEE);";
+                var cmd = new MySqlCommand(requete, oConnexion);
+
+                cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaison.SelectedItem).GetId());
+                cmd.Parameters.AddWithValue("@NOBATEAU", ((Bateaux)cmbBateau.SelectedItem).getNoBateau());
+                cmd.Parameters.AddWithValue("@DATEHEUREDEPART", dateDepart.Text.ToString());
+                cmd.Parameters.AddWithValue("@DATEHEUREARRIVEE", dateArrivee.Text.ToString());
+
+                int nb = cmd.ExecuteNonQuery();
+                if (nb > 0)
+                {
+                    MessageBox.Show("Ajout réussi", "Réussite de l'ajout !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
+            finally { oConnexion.Close(); } 
+        }
+
+        private void lbxSecteur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // TRY-CATCH du combo-box des liaison
             try
             {
                 oConnexion.Open();
@@ -82,10 +112,12 @@ namespace Atlantik_Admin_App.utilitaires
                                  "FROM liaison l " +
                                  "INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT " +
                                  "INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT " +
-                                 "INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR;";
+                                 "INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR " +
+                                 "WHERE s.NOSECTEUR = @NOSECTEUR;";
 
                 var cmd = new MySqlCommand(requete, oConnexion);
 
+                cmd.Parameters.AddWithValue("@NOSECTEUR", ((Secteur)lbxSecteur.SelectedItem).GetId().ToString());
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -101,29 +133,6 @@ namespace Atlantik_Admin_App.utilitaires
                 MessageBox.Show("Erreur : " + ex.Message);
             }
             finally { oConnexion.Close(); }
-        }
-
-        private void btnAjouter_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                oConnexion.Open();
-                string requete = "INSERT INTO traversee(NOLIAISON, NOBATEAU, DATEHEUREDEPART, DATEHEUREARRIVEE) " +
-                                 "VALUES (@NOLIAISON, @NOBATEAU, @DATEHEUREDEPART, @DATEHEUREARRIVEE);";
-                var cmd = new MySqlCommand(requete, oConnexion);
-                reader = cmd.ExecuteReader();
-
-                cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaison.SelectedItem).GetId());
-                cmd.Parameters.AddWithValue("@NOBATEAU", ((Bateaux)cmbBateau.SelectedItem).getNoBateau());
-                cmd.Parameters.AddWithValue("@DATEHEUREDEPART", dateDepart.Value);
-                cmd.Parameters.AddWithValue("@DATEHEUREARRIVEE", dateArrivee.Value);
-
-                cmd.ExecuteNonQuery();
-            } catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur : " + ex.Message);
-            }
-            finally { oConnexion.Close(); } 
         }
     }
 }

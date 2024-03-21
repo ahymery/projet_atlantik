@@ -287,7 +287,6 @@ C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterSecteur.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterPort.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterTarifs.resources
-C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAPropos.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormModifierBateau.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.GenerateResource.cache
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.CoreCompileInputs.cache

@@ -47,8 +47,9 @@
             this.lbxSecteur.FormattingEnabled = true;
             this.lbxSecteur.Location = new System.Drawing.Point(13, 28);
             this.lbxSecteur.Name = "lbxSecteur";
-            this.lbxSecteur.Size = new System.Drawing.Size(120, 186);
+            this.lbxSecteur.Size = new System.Drawing.Size(120, 160);
             this.lbxSecteur.TabIndex = 0;
+            this.lbxSecteur.SelectedIndexChanged += new System.EventHandler(this.lbxSecteur_SelectedIndexChanged);
             // 
             // lblSecteur
             // 
@@ -62,7 +63,7 @@
             // lblLiaison
             // 
             this.lblLiaison.AutoSize = true;
-            this.lblLiaison.Location = new System.Drawing.Point(10, 235);
+            this.lblLiaison.Location = new System.Drawing.Point(10, 206);
             this.lblLiaison.Name = "lblLiaison";
             this.lblLiaison.Size = new System.Drawing.Size(49, 13);
             this.lblLiaison.TabIndex = 2;
@@ -71,7 +72,7 @@
             // cmbLiaison
             // 
             this.cmbLiaison.FormattingEnabled = true;
-            this.cmbLiaison.Location = new System.Drawing.Point(13, 265);
+            this.cmbLiaison.Location = new System.Drawing.Point(13, 236);
             this.cmbLiaison.Name = "cmbLiaison";
             this.cmbLiaison.Size = new System.Drawing.Size(121, 21);
             this.cmbLiaison.TabIndex = 3;
@@ -96,7 +97,7 @@
             // lblDHDepart
             // 
             this.lblDHDepart.AutoSize = true;
-            this.lblDHDepart.Location = new System.Drawing.Point(142, 161);
+            this.lblDHDepart.Location = new System.Drawing.Point(141, 130);
             this.lblDHDepart.Name = "lblDHDepart";
             this.lblDHDepart.Size = new System.Drawing.Size(126, 13);
             this.lblDHDepart.TabIndex = 6;
@@ -105,7 +106,7 @@
             // lblDHArrivee
             // 
             this.lblDHArrivee.AutoSize = true;
-            this.lblDHArrivee.Location = new System.Drawing.Point(142, 201);
+            this.lblDHArrivee.Location = new System.Drawing.Point(141, 170);
             this.lblDHArrivee.Name = "lblDHArrivee";
             this.lblDHArrivee.Size = new System.Drawing.Size(124, 13);
             this.lblDHArrivee.TabIndex = 7;
@@ -113,27 +114,27 @@
             // 
             // dateDepart
             // 
-            this.dateDepart.CustomFormat = "yyyy-MM-dd H\':\'mm\':\'ss";
+            this.dateDepart.CustomFormat = "yyyy-MM-dd H\':\'mm";
             this.dateDepart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDepart.Location = new System.Drawing.Point(274, 161);
+            this.dateDepart.Location = new System.Drawing.Point(273, 130);
             this.dateDepart.Name = "dateDepart";
-            this.dateDepart.Size = new System.Drawing.Size(182, 20);
+            this.dateDepart.Size = new System.Drawing.Size(155, 20);
             this.dateDepart.TabIndex = 8;
             this.dateDepart.Value = new System.DateTime(2024, 3, 31, 0, 0, 0, 0);
             // 
             // dateArrivee
             // 
-            this.dateArrivee.CustomFormat = "yyyy-MM-dd H\':\'m\':\'ss";
+            this.dateArrivee.CustomFormat = "yyyy-MM-dd H\':\'m";
             this.dateArrivee.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateArrivee.Location = new System.Drawing.Point(273, 195);
+            this.dateArrivee.Location = new System.Drawing.Point(272, 164);
             this.dateArrivee.Name = "dateArrivee";
-            this.dateArrivee.Size = new System.Drawing.Size(182, 20);
+            this.dateArrivee.Size = new System.Drawing.Size(156, 20);
             this.dateArrivee.TabIndex = 9;
             this.dateArrivee.Value = new System.DateTime(2024, 3, 21, 11, 33, 0, 0);
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(357, 259);
+            this.btnAjouter.Location = new System.Drawing.Point(353, 230);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 27);
             this.btnAjouter.TabIndex = 10;
@@ -145,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 307);
+            this.ClientSize = new System.Drawing.Size(440, 275);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.dateArrivee);
             this.Controls.Add(this.dateDepart);

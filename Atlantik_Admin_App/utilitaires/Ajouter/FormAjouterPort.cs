@@ -43,7 +43,7 @@ namespace Atlantik_Admin_App.utilitaires
             int nb = cmd.ExecuteNonQuery();
             if (nb > 0)
             {
-                MessageBox.Show("Ajout réussi."); 
+                MessageBox.Show("Ajout réussi", "Réussite de l'ajout !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else

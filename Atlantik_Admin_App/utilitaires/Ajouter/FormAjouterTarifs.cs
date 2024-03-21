@@ -143,7 +143,11 @@ namespace Atlantik_Admin_App.utilitaires
                     cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
                     cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
                     cmd.Parameters.AddWithValue("@TARIF", Convert.ToDouble(tarifs.Text.ToString()));
-                    cmd.ExecuteNonQuery();
+                    int nb = cmd.ExecuteNonQuery();
+                    if (nb > 0)
+                    {
+                        MessageBox.Show("Ajout réussi", "Réussite de l'ajout !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (MySqlException ex)
                 {
@@ -151,7 +155,6 @@ namespace Atlantik_Admin_App.utilitaires
                 }
                 finally
                 {
-                    MessageBox.Show("Ajout réussi !", "Réussite", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     oConnexion.Close();
                 }
             }
