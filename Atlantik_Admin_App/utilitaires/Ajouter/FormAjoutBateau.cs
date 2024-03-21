@@ -39,11 +39,11 @@ namespace Atlantik_Admin_App.utilitaires
 
                     // 1ere requete d'ajout du nom du bateau dans la table bateau 
 
-                    string requete = "INSERT INTO bateau(NOM) VALUES (@NOBATEAU);";
+                    string requete = "INSERT INTO bateau(NOM) VALUES (@NOMBATEAU);";
 
                     var cmd_nombateau = new MySqlCommand(requete, oConnexion);
 
-                    cmd_nombateau.Parameters.AddWithValue("@NOBATEAU", tbxNomBateau.Text);
+                    cmd_nombateau.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text);
 
                     cmd_nombateau.ExecuteNonQuery();
 
