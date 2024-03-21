@@ -66,5 +66,11 @@ namespace Atlantik_Admin_App
             FormModifierBateau modifier = new FormModifierBateau();
             modifier.ShowDialog();
         }
+
+        private void btnAjouterTraversee_Click(object sender, EventArgs e)
+        {
+            FormAjouterTraversee traversee = new FormAjouterTraversee();
+            traversee.ShowDialog();
+        }
     }
 }

@@ -117,34 +117,8 @@ namespace Atlantik_Admin_App.utilitaires
             {
                 oConnexion.Close();
             }
-            // TRY-CATCH du combo-box des liaison
+            
 
-            try
-            {
-                oConnexion.Open();
-                string requete = "SELECT *, " +
-                                 "p_dep.NOM AS NomPortDepart, " +
-                                 "p_arr.NOM AS NomPortArrivee, " +
-                                 "s.NOM AS NomSecteur " +
-                                 "FROM liaison l " +
-                                 "INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT " +
-                                 "INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT " +
-                                 "INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR;";
-
-                var cmd = new MySqlCommand(requete, oConnexion);
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    cmbLiaisons.Items.Add(new Liaison(int.Parse(reader["NOLIAISON"].ToString()), reader["NomPortDepart"].ToString(), reader["NomPortArrivee"].ToString()));
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur : " + ex.Message);
-            }
-            finally { oConnexion.Close(); }
         }
 
 
@@ -181,6 +155,43 @@ namespace Atlantik_Admin_App.utilitaires
                     oConnexion.Close();
                 }
             }
+        }
+
+        private void lbxSecteurs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // TRY-CATCH du combo-box des liaison
+
+            try
+            {
+                oConnexion.Open();
+                string requete = "SELECT *, " +
+                                 "p_dep.NOM AS NomPortDepart, " +
+                                 "p_arr.NOM AS NomPortArrivee, " +
+                                 "s.NOM AS NomSecteur " +
+                                 "FROM liaison l " +
+                                 "INNER JOIN port p_dep ON l.NOPORT_DEPART = p_dep.NOPORT " +
+                                 "INNER JOIN port p_arr ON l.NOPORT_ARRIVEE = p_arr.NOPORT " +
+                                 "INNER JOIN secteur s ON l.NOSECTEUR = s.NOSECTEUR " +
+                                 "WHERE s.NOSECTEUR = @NOSECTEUR;";
+
+                var cmd = new MySqlCommand(requete, oConnexion);
+
+                cmd.Parameters.AddWithValue("@NOSECTEUR", ((Secteur)lbxSecteurs.SelectedItem).GetId().ToString());
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                cmbLiaisons.Items.Clear();
+
+                while (reader.Read())
+                {
+                    cmbLiaisons.Items.Add(new Liaison(int.Parse(reader["NOLIAISON"].ToString()), reader["NomPortDepart"].ToString(), reader["NomPortArrivee"].ToString()));
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
+            finally { oConnexion.Close(); }
         }
     }
 

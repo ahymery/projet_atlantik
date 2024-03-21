@@ -73,6 +73,7 @@
             this.lbxSecteurs.Name = "lbxSecteurs";
             this.lbxSecteurs.Size = new System.Drawing.Size(108, 160);
             this.lbxSecteurs.TabIndex = 1;
+            this.lbxSecteurs.SelectedIndexChanged += new System.EventHandler(this.lbxSecteurs_SelectedIndexChanged);
             // 
             // lblSecteurs
             // 

@@ -148,6 +148,12 @@
     <Compile Include="utilitaires\FormAjouterTarifs.Designer.cs">
       <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\FormAjouterTraversee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\FormAjouterTraversee.Designer.cs">
+      <DependentUpon>FormAjouterTraversee.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilitaires\FormAPropos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAjouterTarifs.resx">
       <DependentUpon>FormAjouterTarifs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\FormAjouterTraversee.resx">
+      <DependentUpon>FormAjouterTraversee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\FormAPropos.resx">
       <DependentUpon>FormAPropos.cs</DependentUpon>

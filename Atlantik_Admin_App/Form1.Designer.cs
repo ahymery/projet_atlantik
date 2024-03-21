@@ -140,6 +140,7 @@
             this.btnAjouterTraversee.Name = "btnAjouterTraversee";
             this.btnAjouterTraversee.Size = new System.Drawing.Size(287, 22);
             this.btnAjouterTraversee.Text = "Une traversée";
+            this.btnAjouterTraversee.Click += new System.EventHandler(this.btnAjouterTraversee_Click);
             // 
             // btnModifier
             // 
@@ -193,6 +194,11 @@
             this.btnAPropos.Name = "btnAPropos";
             this.btnAPropos.Size = new System.Drawing.Size(67, 20);
             this.btnAPropos.Text = "A propos";
+            // 
+            // ajouterTarifsformDeTestToolStripMenuItem
+            // 
+            this.ajouterTarifsformDeTestToolStripMenuItem.Name = "ajouterTarifsformDeTestToolStripMenuItem";
+            this.ajouterTarifsformDeTestToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
             // FormAccueil
             // 

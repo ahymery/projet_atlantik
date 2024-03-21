@@ -39,7 +39,7 @@ namespace Atlantik_Admin_App.utilitaires
 
                     // Récupération du numéro bateau afin de l'ajouter dans la table contenir
 
-                    string requete = "SELECT b.NOBATEAU FROM bateau b;";
+                    string requete = "SELECT * FROM bateau b INNER JOIN contenir c ON (b.NOBATEAU = c.NOBATEAU) GROUP BY b.NOBATEAU DESC;";
 
                     var cmd_nobateau = new MySqlCommand(requete, oConnexion);
 
@@ -78,7 +78,7 @@ namespace Atlantik_Admin_App.utilitaires
                 finally
                 {
                     oConnexion.Close();
-                }     
+                }      
                 
 
             }
