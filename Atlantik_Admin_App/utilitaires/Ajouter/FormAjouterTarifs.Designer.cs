@@ -149,7 +149,10 @@
             this.Controls.Add(this.gbxTarifs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAjouterTarifs";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter les tarifs pour une liaison et une période";
             this.Load += new System.EventHandler(this.FormAjouterTarifs_Load);

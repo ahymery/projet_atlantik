@@ -154,11 +154,23 @@
     <Compile Include="utilitaires\Ajouter\FormAjouterTraversee.Designer.cs">
       <DependentUpon>FormAjouterTraversee.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\A_Propos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\A_Propos.Designer.cs">
+      <DependentUpon>A_Propos.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilitaires\Modifier\FormModifierBateau.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="utilitaires\Modifier\FormModifierBateau.Designer.cs">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utilitaires\Modifier\FormModifierParametres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\Modifier\FormModifierParametres.Designer.cs">
+      <DependentUpon>FormModifierParametres.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -193,8 +205,14 @@
     <EmbeddedResource Include="utilitaires\Ajouter\FormAjouterTraversee.resx">
       <DependentUpon>FormAjouterTraversee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\A_Propos.resx">
+      <DependentUpon>A_Propos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\Modifier\FormModifierBateau.resx">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\Modifier\FormModifierParametres.resx">
+      <DependentUpon>FormModifierParametres.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

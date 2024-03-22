@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.gbxPayBox = new System.Windows.Forms.GroupBox();
+            this.tbxRang = new System.Windows.Forms.TextBox();
+            this.tbxID = new System.Windows.Forms.TextBox();
+            this.tbxCle = new System.Windows.Forms.TextBox();
+            this.tbxSite = new System.Windows.Forms.TextBox();
             this.lblHMAC = new System.Windows.Forms.Label();
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.lblRang = new System.Windows.Forms.Label();
             this.lblSite = new System.Windows.Forms.Label();
-            this.tbxSite = new System.Windows.Forms.TextBox();
-            this.tbxCle = new System.Windows.Forms.TextBox();
-            this.tbxID = new System.Windows.Forms.TextBox();
-            this.tbxRang = new System.Windows.Forms.TextBox();
             this.cbxProduction = new System.Windows.Forms.CheckBox();
             this.tbxMel = new System.Windows.Forms.TextBox();
             this.lblMel = new System.Windows.Forms.Label();
@@ -60,6 +60,35 @@
             this.gbxPayBox.TabIndex = 0;
             this.gbxPayBox.TabStop = false;
             this.gbxPayBox.Text = "Identifiants PayBox";
+            // 
+            // tbxRang
+            // 
+            this.tbxRang.Location = new System.Drawing.Point(138, 67);
+            this.tbxRang.Name = "tbxRang";
+            this.tbxRang.Size = new System.Drawing.Size(35, 20);
+            this.tbxRang.TabIndex = 11;
+            // 
+            // tbxID
+            // 
+            this.tbxID.Location = new System.Drawing.Point(138, 105);
+            this.tbxID.Name = "tbxID";
+            this.tbxID.Size = new System.Drawing.Size(100, 20);
+            this.tbxID.TabIndex = 10;
+            // 
+            // tbxCle
+            // 
+            this.tbxCle.Location = new System.Drawing.Point(138, 143);
+            this.tbxCle.Multiline = true;
+            this.tbxCle.Name = "tbxCle";
+            this.tbxCle.Size = new System.Drawing.Size(182, 130);
+            this.tbxCle.TabIndex = 9;
+            // 
+            // tbxSite
+            // 
+            this.tbxSite.Location = new System.Drawing.Point(138, 30);
+            this.tbxSite.Name = "tbxSite";
+            this.tbxSite.Size = new System.Drawing.Size(100, 20);
+            this.tbxSite.TabIndex = 8;
             // 
             // lblHMAC
             // 
@@ -97,39 +126,10 @@
             this.lblSite.TabIndex = 4;
             this.lblSite.Text = "Site :";
             // 
-            // tbxSite
-            // 
-            this.tbxSite.Location = new System.Drawing.Point(138, 30);
-            this.tbxSite.Name = "tbxSite";
-            this.tbxSite.Size = new System.Drawing.Size(100, 20);
-            this.tbxSite.TabIndex = 8;
-            // 
-            // tbxCle
-            // 
-            this.tbxCle.Location = new System.Drawing.Point(138, 143);
-            this.tbxCle.Multiline = true;
-            this.tbxCle.Name = "tbxCle";
-            this.tbxCle.Size = new System.Drawing.Size(182, 130);
-            this.tbxCle.TabIndex = 9;
-            // 
-            // tbxID
-            // 
-            this.tbxID.Location = new System.Drawing.Point(138, 105);
-            this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(100, 20);
-            this.tbxID.TabIndex = 10;
-            // 
-            // tbxRang
-            // 
-            this.tbxRang.Location = new System.Drawing.Point(138, 67);
-            this.tbxRang.Name = "tbxRang";
-            this.tbxRang.Size = new System.Drawing.Size(35, 20);
-            this.tbxRang.TabIndex = 11;
-            // 
             // cbxProduction
             // 
             this.cbxProduction.AutoSize = true;
-            this.cbxProduction.Location = new System.Drawing.Point(281, 307);
+            this.cbxProduction.Location = new System.Drawing.Point(257, 317);
             this.cbxProduction.Name = "cbxProduction";
             this.cbxProduction.Size = new System.Drawing.Size(92, 17);
             this.cbxProduction.TabIndex = 1;
@@ -173,6 +173,7 @@
             this.Controls.Add(this.gbxPayBox);
             this.Name = "FormModifierParametres";
             this.Text = "FormModifierParametres";
+            this.Load += new System.EventHandler(this.FormModifierParametres_Load);
             this.gbxPayBox.ResumeLayout(false);
             this.gbxPayBox.PerformLayout();
             this.ResumeLayout(false);

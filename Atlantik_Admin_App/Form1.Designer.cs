@@ -46,7 +46,6 @@
             this.btnAfficherTraversee = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAfficherDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAPropos = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterTarifsformDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoAtlantik)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +162,7 @@
             this.btnParametres.Name = "btnParametres";
             this.btnParametres.Size = new System.Drawing.Size(153, 22);
             this.btnParametres.Text = "Les paramètres";
+            this.btnParametres.Click += new System.EventHandler(this.btnParametres_Click);
             // 
             // btnAfficher
             // 
@@ -189,16 +189,10 @@
             // 
             // btnAPropos
             // 
-            this.btnAPropos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterTarifsformDeTestToolStripMenuItem});
             this.btnAPropos.Name = "btnAPropos";
             this.btnAPropos.Size = new System.Drawing.Size(67, 20);
             this.btnAPropos.Text = "A propos";
-            // 
-            // ajouterTarifsformDeTestToolStripMenuItem
-            // 
-            this.ajouterTarifsformDeTestToolStripMenuItem.Name = "ajouterTarifsformDeTestToolStripMenuItem";
-            this.ajouterTarifsformDeTestToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.btnAPropos.Click += new System.EventHandler(this.btnAPropos_Click);
             // 
             // FormAccueil
             // 
@@ -210,6 +204,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAccueil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atlantik - Accueil";
@@ -241,7 +237,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnAfficherTraversee;
         private System.Windows.Forms.ToolStripMenuItem btnAfficherDetails;
         private System.Windows.Forms.ToolStripMenuItem btnAPropos;
-        private System.Windows.Forms.ToolStripMenuItem ajouterTarifsformDeTestToolStripMenuItem;
     }
 }
 

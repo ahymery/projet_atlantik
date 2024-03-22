@@ -1,4 +1,5 @@
 ﻿using Atlantik_Admin_App.utilitaires;
+using Atlantik_Admin_App.utilitaires.Modifier;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,6 +72,18 @@ namespace Atlantik_Admin_App
         {
             FormAjouterTraversee traversee = new FormAjouterTraversee();
             traversee.ShowDialog();
+        }
+
+        private void btnParametres_Click(object sender, EventArgs e)
+        {
+            FormModifierParametres modifier = new FormModifierParametres();
+            modifier.ShowDialog();
+        }
+
+        private void btnAPropos_Click(object sender, EventArgs e)
+        {
+            A_Propos a_Propos = new A_Propos();
+            a_Propos.ShowDialog();
         }
     }
 }

@@ -72,6 +72,7 @@
             this.tbxCategorieC.Name = "tbxCategorieC";
             this.tbxCategorieC.Size = new System.Drawing.Size(113, 20);
             this.tbxCategorieC.TabIndex = 5;
+            this.tbxCategorieC.Tag = "C";
             // 
             // tbxCategorieB
             // 
@@ -79,6 +80,7 @@
             this.tbxCategorieB.Name = "tbxCategorieB";
             this.tbxCategorieB.Size = new System.Drawing.Size(113, 20);
             this.tbxCategorieB.TabIndex = 4;
+            this.tbxCategorieB.Tag = "B";
             // 
             // tbxCategorieA
             // 
@@ -86,6 +88,7 @@
             this.tbxCategorieA.Name = "tbxCategorieA";
             this.tbxCategorieA.Size = new System.Drawing.Size(113, 20);
             this.tbxCategorieA.TabIndex = 3;
+            this.tbxCategorieA.Tag = "A";
             // 
             // lblCategorieC
             // 
@@ -147,6 +150,7 @@
             this.Controls.Add(this.lblNomBateau);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormModifierBateau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modifier un bateau";
             this.Load += new System.EventHandler(this.FormModifierBateau_Load);
             this.gbxCapacitésMax.ResumeLayout(false);

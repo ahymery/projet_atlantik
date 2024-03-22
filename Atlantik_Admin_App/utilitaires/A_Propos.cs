@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Atlantik_Admin_App.utilitaires.Modifier
+namespace Atlantik_Admin_App.utilitaires
 {
-    public partial class FormModifierParametres : Form
+    public partial class A_Propos : Form
     {
-        public FormModifierParametres()
+        public A_Propos()
         {
             InitializeComponent();
-        }
-
-        private void FormModifierParametres_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

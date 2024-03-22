@@ -1,6 +1,7 @@
 ﻿using Atlantik_Admin_App.classes;
 using MySql.Data.MySqlClient;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -8,6 +9,7 @@ namespace Atlantik_Admin_App.utilitaires
     public partial class FormAfficherReservations : Form
     {
         MySqlConnection oConnexion;
+        MySqlDataReader reader = null;
         public FormAfficherReservations()
         {
             InitializeComponent();
@@ -37,40 +39,63 @@ namespace Atlantik_Admin_App.utilitaires
                 var cmd = new MySqlCommand(requete, oConnexion);
                 cmd.CommandText = requete;
 
-                MySqlDataReader readDB = cmd.ExecuteReader();
-                while (readDB.Read())
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    cmbClients.Items.Add(new Client(readDB["NOM"].ToString(), readDB["PRENOM"].ToString()));
+                    cmbClients.Items.Add(new Client(reader["NOM"].ToString(), reader["PRENOM"].ToString()));
                 }
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Erreur : " + ex.Message);
             }
-            finally { oConnexion.Close(); }
+            finally
+            {
+                oConnexion.Close();
+            }
         }
 
         private void cmbClients_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Affichage des quantités réservées dans le group box réservation 
             try
             {
                 oConnexion.Open();
-                string requete = "SELECT * FROM enregistrer;";
+                string requete = "SELECT * FROM enregistrer WHERE NOTYPE = @NOTYPE;";
                 var cmd = new MySqlCommand(requete, oConnexion);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                reader = cmd.ExecuteReader();
+                foreach (Label lbl in gbxReservation.Controls.OfType<Label>())
                 {
-                    lblAffichageAdulte.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageJunior.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageEnfant.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageVoiture.Text = reader["QUANTITERESERVEE"].ToString();
+                    string categorie = lbl.Tag.ToString();
+                    string[] tag;
+                    tag = categorie.Split(';');
+                    cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
+                    while (reader.Read())
+                    {
+                        lbl.Text = reader["QUANTITERESERVEE"].ToString();
+                    }
                 }
+                reader.Close();
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Erreur : " + ex.Message);
             }
-            finally { oConnexion.Close(); }
+            finally
+            {
+                oConnexion.Close();
+            }
+
+            // Affichage du montant totale
+
+            try
+            {
+                oConnexion.Open();
+                string requete = "SELECT MONTANTTOTAL FROM reservation WHERE NOCLIENT = @NOCLIENT;";
+                var cmd = new MySqlCommand(requete, oConnexion);
+                reader = cmd.ExecuteReader();
+
+            }
         }
     }
 }
