@@ -52,6 +52,7 @@ namespace Atlantik_Admin_App.utilitaires
             finally
             {
                 oConnexion.Close();
+                reader.Close();
             }
         }
 
@@ -63,19 +64,23 @@ namespace Atlantik_Admin_App.utilitaires
                 oConnexion.Open();
                 string requete = "SELECT * FROM enregistrer WHERE NOTYPE = @NOTYPE;";
                 var cmd = new MySqlCommand(requete, oConnexion);
-                reader = cmd.ExecuteReader();
-                foreach (Label lbl in gbxReservation.Controls.OfType<Label>())
-                {
-                    string categorie = lbl.Tag.ToString();
+                foreach (Label lblAffichage in gbxReservation.Controls.OfType<Label>()) 
+                { 
+                    string categorie = lblAffichage.Tag.ToString();
                     string[] tag;
                     tag = categorie.Split(';');
                     cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
-                    while (reader.Read())
-                    {
-                        lbl.Text = reader["QUANTITERESERVEE"].ToString();
-                    }
+                    break;
                 }
-                reader.Close();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lblAffichageAdulte.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageJunior.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageEnfant.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageVoiture.Text = reader["QUANTITERESERVEE"].ToString();
+                }
             }
             catch (MySqlException ex)
             {
@@ -91,10 +96,64 @@ namespace Atlantik_Admin_App.utilitaires
             try
             {
                 oConnexion.Open();
-                string requete = "SELECT MONTANTTOTAL FROM reservation WHERE NOCLIENT = @NOCLIENT;";
+                string requete = "SELECT * FROM reservation;";
                 var cmd = new MySqlCommand(requete, oConnexion);
+                cmd.Parameters.AddWithValue("@NOCLIENT", ((Client)cmbClients.SelectedItem).getIdClient());
                 reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lblAffichageMontant.Text = reader["MONTANTTOTAL"].ToString() + 0 + " euros";
+                }
 
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                oConnexion.Close();
+            }
+
+
+
+            // Affichage des informations des réservations 
+
+            try
+            {
+                oConnexion.Open();
+                string requete = "SELECT *, " +
+                    "p_dep.NOM AS NomPortDepart, " +
+                    "p_arr.NOM AS NomPortArrivee " +
+                    "FROM enregistrer enr " +
+                    "INNER JOIN reservation r ON (enr.NORESERVATION = r.NORESERVATION) " +
+                    "INNER JOIN traversee t ON (r.NOTRAVERSEE = t.NOTRAVERSEE) " +
+                    "INNER JOIN liaison l ON (l.NOLIAISON = t.NOLIAISON) " +
+                    "INNER JOIN port p_dep ON (l.NOPORT_DEPART = p_dep.NOPORT) " +
+                    "INNER JOIN port p_arr ON (l.NOPORT_ARRIVEE = p_arr.NOPORT);";
+
+                var cmd = new MySqlCommand(requete, oConnexion);
+                cmd.Parameters.AddWithValue("@NOCLIENT", ((Client)cmbClients.SelectedItem).getIdClient());
+                reader = cmd.ExecuteReader();
+                reader.Read();
+
+                Liaison l = new Liaison(int.Parse(reader["NOLIAISON"].ToString()), reader["NomPortDepart"].ToString(), reader["NomPortArrivee"].ToString());
+                var tabItem = new string[4];
+                ListViewItem uneReservation;
+                tabItem[0] = reader["NORESERVATION"].ToString();
+                tabItem[1] = l.ToString();
+                tabItem[2] = reader["NOTRAVERSEE"].ToString();
+                tabItem[3] = reader["DATEHEUREDEPART"].ToString();
+                lvReservations.Items.Add(new ListViewItem(tabItem));
+
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+            finally
+            {
+                oConnexion.Close();
             }
         }
     }

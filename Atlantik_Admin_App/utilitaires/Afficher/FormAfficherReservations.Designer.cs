@@ -33,16 +33,16 @@
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.lvReservations = new System.Windows.Forms.ListView();
             this.gbxReservation = new System.Windows.Forms.GroupBox();
-            this.lblAffichageMontant = new System.Windows.Forms.Label();
             this.lblAffichageVoiture = new System.Windows.Forms.Label();
             this.lblAffichageEnfant = new System.Windows.Forms.Label();
             this.lblAffichageJunior = new System.Windows.Forms.Label();
             this.lblAffichageAdulte = new System.Windows.Forms.Label();
-            this.lblMontant = new System.Windows.Forms.Label();
             this.lblJunior = new System.Windows.Forms.Label();
             this.lblEnfants = new System.Windows.Forms.Label();
             this.lblVoiture = new System.Windows.Forms.Label();
             this.lblAdulte = new System.Windows.Forms.Label();
+            this.lblAffichageMontant = new System.Windows.Forms.Label();
+            this.lblMontant = new System.Windows.Forms.Label();
             this.gbxReservation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,19 +95,9 @@
             this.gbxReservation.TabStop = false;
             this.gbxReservation.Text = "Réservation";
             // 
-            // lblAffichageMontant
-            // 
-            this.lblAffichageMontant.AutoSize = true;
-            this.lblAffichageMontant.Location = new System.Drawing.Point(488, 373);
-            this.lblAffichageMontant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAffichageMontant.Name = "lblAffichageMontant";
-            this.lblAffichageMontant.Size = new System.Drawing.Size(13, 13);
-            this.lblAffichageMontant.TabIndex = 9;
-            this.lblAffichageMontant.Tag = "";
-            this.lblAffichageMontant.Text = "0";
-            // 
             // lblAffichageVoiture
             // 
+            this.lblAffichageVoiture.AccessibleName = "lblAffichage";
             this.lblAffichageVoiture.AutoSize = true;
             this.lblAffichageVoiture.Location = new System.Drawing.Point(126, 150);
             this.lblAffichageVoiture.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -119,6 +109,7 @@
             // 
             // lblAffichageEnfant
             // 
+            this.lblAffichageEnfant.AccessibleName = "lblAffichage";
             this.lblAffichageEnfant.AutoSize = true;
             this.lblAffichageEnfant.Location = new System.Drawing.Point(126, 111);
             this.lblAffichageEnfant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -130,6 +121,7 @@
             // 
             // lblAffichageJunior
             // 
+            this.lblAffichageJunior.AccessibleName = "lblAffichage";
             this.lblAffichageJunior.AutoSize = true;
             this.lblAffichageJunior.Location = new System.Drawing.Point(126, 75);
             this.lblAffichageJunior.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -141,6 +133,7 @@
             // 
             // lblAffichageAdulte
             // 
+            this.lblAffichageAdulte.AccessibleName = "lblAffichage";
             this.lblAffichageAdulte.AutoSize = true;
             this.lblAffichageAdulte.Location = new System.Drawing.Point(126, 34);
             this.lblAffichageAdulte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -149,16 +142,6 @@
             this.lblAffichageAdulte.TabIndex = 5;
             this.lblAffichageAdulte.Tag = "A;1";
             this.lblAffichageAdulte.Text = "0";
-            // 
-            // lblMontant
-            // 
-            this.lblMontant.AutoSize = true;
-            this.lblMontant.Location = new System.Drawing.Point(324, 373);
-            this.lblMontant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMontant.Name = "lblMontant";
-            this.lblMontant.Size = new System.Drawing.Size(160, 13);
-            this.lblMontant.TabIndex = 4;
-            this.lblMontant.Text = "Montant Total de la réservation :";
             // 
             // lblJunior
             // 
@@ -199,6 +182,27 @@
             this.lblAdulte.Size = new System.Drawing.Size(46, 13);
             this.lblAdulte.TabIndex = 0;
             this.lblAdulte.Text = "Adulte : ";
+            // 
+            // lblAffichageMontant
+            // 
+            this.lblAffichageMontant.AutoSize = true;
+            this.lblAffichageMontant.Location = new System.Drawing.Point(488, 373);
+            this.lblAffichageMontant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAffichageMontant.Name = "lblAffichageMontant";
+            this.lblAffichageMontant.Size = new System.Drawing.Size(13, 13);
+            this.lblAffichageMontant.TabIndex = 9;
+            this.lblAffichageMontant.Tag = "";
+            this.lblAffichageMontant.Text = "0";
+            // 
+            // lblMontant
+            // 
+            this.lblMontant.AutoSize = true;
+            this.lblMontant.Location = new System.Drawing.Point(324, 373);
+            this.lblMontant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMontant.Name = "lblMontant";
+            this.lblMontant.Size = new System.Drawing.Size(160, 13);
+            this.lblMontant.TabIndex = 4;
+            this.lblMontant.Text = "Montant Total de la réservation :";
             // 
             // FormAfficherReservations
             // 
