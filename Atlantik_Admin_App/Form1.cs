@@ -1,4 +1,5 @@
 ﻿using Atlantik_Admin_App.utilitaires;
+using Atlantik_Admin_App.utilitaires.Afficher;
 using Atlantik_Admin_App.utilitaires.Modifier;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,12 @@ namespace Atlantik_Admin_App
         {
             A_Propos a_Propos = new A_Propos();
             a_Propos.ShowDialog();
+        }
+
+        private void btnAfficherTraversee_Click(object sender, EventArgs e)
+        {
+            FormAfficherTraversee traversee = new FormAfficherTraversee();
+            traversee.ShowDialog();
         }
     }
 }

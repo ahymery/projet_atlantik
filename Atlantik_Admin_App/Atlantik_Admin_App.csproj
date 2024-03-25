@@ -118,6 +118,12 @@
     <Compile Include="utilitaires\Afficher\FormAfficherReservations.Designer.cs">
       <DependentUpon>FormAfficherReservations.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilitaires\Afficher\FormAfficherTraversee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilitaires\Afficher\FormAfficherTraversee.Designer.cs">
+      <DependentUpon>FormAfficherTraversee.cs</DependentUpon>
+    </Compile>
     <Compile Include="utilitaires\Ajouter\FormAjoutBateau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </Compile>
     <EmbeddedResource Include="utilitaires\Afficher\FormAfficherReservations.resx">
       <DependentUpon>FormAfficherReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilitaires\Afficher\FormAfficherTraversee.resx">
+      <DependentUpon>FormAfficherTraversee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="utilitaires\Ajouter\FormAjoutBateau.resx">
       <DependentUpon>FormAjoutBateau.cs</DependentUpon>

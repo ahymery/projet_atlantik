@@ -179,6 +179,7 @@
             this.btnAfficherTraversee.Size = new System.Drawing.Size(586, 22);
             this.btnAfficherTraversee.Text = "Les traversées pour une liaison et une date et une date donnée avec places restan" +
     "tes par catégorie";
+            this.btnAfficherTraversee.Click += new System.EventHandler(this.btnAfficherTraversee_Click);
             // 
             // btnAfficherDetails
             // 

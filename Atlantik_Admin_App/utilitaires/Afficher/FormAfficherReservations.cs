@@ -1,5 +1,6 @@
 ﻿using Atlantik_Admin_App.classes;
 using MySql.Data.MySqlClient;
+using Mysqlx;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -45,9 +46,9 @@ namespace Atlantik_Admin_App.utilitaires
                     cmbClients.Items.Add(new Client(reader["NOM"].ToString(), reader["PRENOM"].ToString()));
                 }
             }
-            catch (MySqlException ex)
+            catch (MySqlException error)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -82,9 +83,9 @@ namespace Atlantik_Admin_App.utilitaires
                     lblAffichageVoiture.Text = reader["QUANTITERESERVEE"].ToString();
                 }
             }
-            catch (MySqlException ex)
+            catch (MySqlException error)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -102,20 +103,18 @@ namespace Atlantik_Admin_App.utilitaires
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    lblAffichageMontant.Text = reader["MONTANTTOTAL"].ToString() + 0 + " euros";
+                    lblAffichageMontant.Text = reader["MONTANTTOTAL"].ToString() + " euros";
                 }
 
             }
             catch (MySqlException error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 oConnexion.Close();
             }
-
-
 
             // Affichage des informations des réservations 
 
@@ -149,7 +148,7 @@ namespace Atlantik_Admin_App.utilitaires
             }
             catch (MySqlException error)
             {
-                MessageBox.Show(error.ToString());
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

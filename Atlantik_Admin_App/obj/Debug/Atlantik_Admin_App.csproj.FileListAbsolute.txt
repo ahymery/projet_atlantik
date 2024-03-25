@@ -296,3 +296,4 @@ C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterTraversee.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Modifier.FormModifierParametres.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.A_Propos.resources
+C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Afficher.FormAfficherTraversee.resources
