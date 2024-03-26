@@ -135,7 +135,7 @@ namespace Atlantik_Admin_App.utilitaires
                 cmd.Parameters.AddWithValue("@NOCLIENT", ((Client)cmbClients.SelectedItem).getIdClient());
                 reader = cmd.ExecuteReader();
                 reader.Read();
-
+                lvReservations.Items.Clear();
                 Liaison l = new Liaison(int.Parse(reader["NOLIAISON"].ToString()), reader["NomPortDepart"].ToString(), reader["NomPortArrivee"].ToString());
                 var tabItem = new string[4];
                 ListViewItem uneReservation;

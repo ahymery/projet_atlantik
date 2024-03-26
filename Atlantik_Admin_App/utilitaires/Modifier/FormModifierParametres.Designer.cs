@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModifierParametres));
             this.gbxPayBox = new System.Windows.Forms.GroupBox();
             this.tbxRang = new System.Windows.Forms.TextBox();
             this.tbxID = new System.Windows.Forms.TextBox();
@@ -171,8 +172,9 @@
             this.Controls.Add(this.tbxMel);
             this.Controls.Add(this.cbxProduction);
             this.Controls.Add(this.gbxPayBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormModifierParametres";
-            this.Text = "FormModifierParametres";
+            this.Text = "Modifier les Paramètres du site";
             this.Load += new System.EventHandler(this.FormModifierParametres_Load);
             this.gbxPayBox.ResumeLayout(false);
             this.gbxPayBox.PerformLayout();

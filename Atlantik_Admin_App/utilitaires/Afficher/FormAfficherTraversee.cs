@@ -99,35 +99,56 @@ namespace Atlantik_Admin_App.utilitaires.Afficher
                                  "FROM traversee t " +
                                  "INNER JOIN bateau b ON (t.NOBATEAU = b.NOBATEAU) " +
                                  "INNER JOIN liaison l ON (l.NOLIAISON = t.NOLIAISON) " +
-                                 "INNER JOIN secteur s ON (s.NOSECTEUR = l.NOSECTEUR); ";
+                                 "INNER JOIN secteur s ON (s.NOSECTEUR = l.NOSECTEUR) " +
+                                 "WHERE t.DATEHEUREDEPART = @DATEHEUREDEPART AND l.NOLIAISON = @NOLIAISON;";
 
 
                 var cmd = new MySqlCommand(requete, oConnexion);
-                //cmd.Parameters.AddWithValue("@NOSECTEUR", ((Secteur)lbxSecteurs.SelectedItem).GetId());
-                //cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
                 reader = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("@DATEHEUREDEPART", dateTraversee.Text + "%");
+                cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
 
                 string date = reader["DATEHEUREDEPART"].ToString();
-                string[] heure = date.Split(' ');
 
                 var tabItem = new string[6];
                 ListViewItem unItem;
                 lvTraversee.Items.Clear();
 
-
                 while (reader.Read())
                 {
                     tabItem[0] = reader["NOTRAVERSEE"].ToString();
-                    tabItem[1] = heure[1].ToString();
+                    tabItem[1] = date.Substring(11, 5);
                     tabItem[2] = reader["NOM"].ToString();
                     lvTraversee.Items.Add(new ListViewItem(tabItem));
                 }
             }
             catch (MySqlException error) 
             {
-                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { oConnexion.Close(); }
+
+            // Afficher les places disponibles par catégorie via la table contenir de la BDD
+            
+            try
+            {
+                oConnexion.Open();
+
+            } catch (MySqlException error)
+            {
+                MessageBox.Show(error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                oConnexion.Close();
+            }
+
         }
+
+
+
+
+
+        
     }
 }
