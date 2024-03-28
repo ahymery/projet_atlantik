@@ -101,6 +101,7 @@
     <Compile Include="classes\Bateaux.cs" />
     <Compile Include="classes\Client.cs" />
     <Compile Include="classes\Liaison.cs" />
+    <Compile Include="classes\Parametres.cs" />
     <Compile Include="classes\Periodes.cs" />
     <Compile Include="classes\Port.cs" />
     <Compile Include="classes\Secteur.cs" />

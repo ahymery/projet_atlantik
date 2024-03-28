@@ -87,7 +87,6 @@ namespace Atlantik_Admin_App.utilitaires
                 tabItem[2] = reader["NOTRAVERSEE"].ToString();
                 tabItem[3] = reader["DATEHEUREDEPART"].ToString();
                 lvReservations.Items.Add(new ListViewItem(tabItem));
-
             }
             catch (MySqlException error)
             {
@@ -107,7 +106,7 @@ namespace Atlantik_Admin_App.utilitaires
                 oConnexion.Open();
                 string requete = "SELECT * FROM enregistrer e INNER JOIN reservation r ON (r.NORESERVATION = e.NORESERVATION) INNER JOIN client c ON (c.NOCLIENT = r.NOCLIENT) WHERE e.NOTYPE = @NOTYPE AND c.NOCLIENT = @NOCLIENT;";
                 var cmd = new MySqlCommand(requete, oConnexion);
-                cmd.Parameters.AddWithValue("@NOCLIENT",((Client)cmbClients.SelectedItem).getIdClient() + 1);
+                cmd.Parameters.AddWithValue("@NOCLIENT",((Client)cmbClients.SelectedItem).getIdClient());
                 foreach (Label lblAffichage in gbxReservation.Controls.OfType<Label>())
                 {
                     string categorie = lblAffichage.Tag.ToString();
