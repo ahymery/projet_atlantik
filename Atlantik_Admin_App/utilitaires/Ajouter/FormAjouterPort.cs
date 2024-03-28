@@ -1,13 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -53,20 +47,20 @@ namespace Atlantik_Admin_App.utilitaires
             }
         }
 
-        private void tbxAjouterPort_Validating(object sender, EventArgs e)
+        private void tbxAjouterPort_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-                var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
 
-                var resultatTest = objetRegEx.Match(tbxAjouterPort.Text);
-                if (!resultatTest.Success)
-                {
-                    tbxAjouterPort.BackColor = Color.Tomato;
-                }
-                else
-                {
-                    tbxAjouterPort.BackColor = Color.LightGreen;
-                }
+            var resultatTest = objetRegEx.Match(tbxAjouterPort.Text);
+            if (!resultatTest.Success)
+            {
+                tbxAjouterPort.BackColor = Color.Red;
+            }
+            else
+            {
+                tbxAjouterPort.BackColor = Color.Green;
             }
         }
     }
 }
+

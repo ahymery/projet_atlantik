@@ -50,7 +50,7 @@
             this.tbxAjouterPort.Name = "tbxAjouterPort";
             this.tbxAjouterPort.Size = new System.Drawing.Size(100, 20);
             this.tbxAjouterPort.TabIndex = 1;
-            this.tbxAjouterPort.TextChanged += new System.EventHandler(this.tbxAjouterPort_TextChanged);
+            this.tbxAjouterPort.Validating += new System.ComponentModel.CancelEventHandler(this.tbxAjouterPort_Validating);
             // 
             // lblNomPort
             // 

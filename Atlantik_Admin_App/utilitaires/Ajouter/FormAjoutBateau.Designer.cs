@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjoutBateau));
             this.gbxCapaMax = new System.Windows.Forms.GroupBox();
+            this.tbxCategorieC = new System.Windows.Forms.TextBox();
+            this.tbxCategorieB = new System.Windows.Forms.TextBox();
+            this.tbxCategorieA = new System.Windows.Forms.TextBox();
             this.lblCategorieC = new System.Windows.Forms.Label();
             this.lblCategorieB = new System.Windows.Forms.Label();
             this.lblCategorieA = new System.Windows.Forms.Label();
             this.tbxNomBateau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.tbxCategorieC = new System.Windows.Forms.TextBox();
-            this.tbxCategorieB = new System.Windows.Forms.TextBox();
-            this.tbxCategorieA = new System.Windows.Forms.TextBox();
             this.gbxCapaMax.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,30 @@
             this.gbxCapaMax.TabIndex = 0;
             this.gbxCapaMax.TabStop = false;
             this.gbxCapaMax.Text = "Capacités Maximales";
+            // 
+            // tbxCategorieC
+            // 
+            this.tbxCategorieC.Location = new System.Drawing.Point(104, 209);
+            this.tbxCategorieC.Name = "tbxCategorieC";
+            this.tbxCategorieC.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieC.TabIndex = 8;
+            this.tbxCategorieC.Tag = "C;1";
+            // 
+            // tbxCategorieB
+            // 
+            this.tbxCategorieB.Location = new System.Drawing.Point(104, 117);
+            this.tbxCategorieB.Name = "tbxCategorieB";
+            this.tbxCategorieB.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieB.TabIndex = 7;
+            this.tbxCategorieB.Tag = "B;1";
+            // 
+            // tbxCategorieA
+            // 
+            this.tbxCategorieA.Location = new System.Drawing.Point(104, 41);
+            this.tbxCategorieA.Name = "tbxCategorieA";
+            this.tbxCategorieA.Size = new System.Drawing.Size(113, 20);
+            this.tbxCategorieA.TabIndex = 6;
+            this.tbxCategorieA.Tag = "A;1";
             // 
             // lblCategorieC
             // 
@@ -117,30 +141,6 @@
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
-            // tbxCategorieC
-            // 
-            this.tbxCategorieC.Location = new System.Drawing.Point(104, 209);
-            this.tbxCategorieC.Name = "tbxCategorieC";
-            this.tbxCategorieC.Size = new System.Drawing.Size(113, 20);
-            this.tbxCategorieC.TabIndex = 8;
-            this.tbxCategorieC.Tag = "C";
-            // 
-            // tbxCategorieB
-            // 
-            this.tbxCategorieB.Location = new System.Drawing.Point(104, 117);
-            this.tbxCategorieB.Name = "tbxCategorieB";
-            this.tbxCategorieB.Size = new System.Drawing.Size(113, 20);
-            this.tbxCategorieB.TabIndex = 7;
-            this.tbxCategorieB.Tag = "B";
-            // 
-            // tbxCategorieA
-            // 
-            this.tbxCategorieA.Location = new System.Drawing.Point(104, 41);
-            this.tbxCategorieA.Name = "tbxCategorieA";
-            this.tbxCategorieA.Size = new System.Drawing.Size(113, 20);
-            this.tbxCategorieA.TabIndex = 6;
-            this.tbxCategorieA.Tag = "A";
             // 
             // FormAjoutBateau
             // 
