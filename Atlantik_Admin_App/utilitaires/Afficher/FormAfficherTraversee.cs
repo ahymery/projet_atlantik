@@ -2,7 +2,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Atlantik_Admin_App.utilitaires.Afficher
 {
@@ -100,18 +99,17 @@ namespace Atlantik_Admin_App.utilitaires.Afficher
                                  "INNER JOIN bateau b ON (t.NOBATEAU = b.NOBATEAU) " +
                                  "INNER JOIN liaison l ON (l.NOLIAISON = t.NOLIAISON) " +
                                  "INNER JOIN secteur s ON (s.NOSECTEUR = l.NOSECTEUR) " +
-                                 "WHERE t.DATEHEUREDEPART = @DATEHEUREDEPART AND l.NOLIAISON = @NOLIAISON;";
-
+                                 "INNER JOIN contenir c ON (c.NOBATEAU = b.NOBATEAU) " +
+                                 "WHERE t.DATEHEUREDEPART LIKE '@DATEHEUREDEPART%' AND l.NOLIAISON = @NOLIAISON AND c.LETTRECATEGORIE LIKE '@LETTRECATEGORIE%';";
 
                 var cmd = new MySqlCommand(requete, oConnexion);
                 reader = cmd.ExecuteReader();
                 cmd.Parameters.AddWithValue("@DATEHEUREDEPART", dateTraversee.Text + "%");
                 cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
-
                 string date = reader["DATEHEUREDEPART"].ToString();
 
                 var tabItem = new string[6];
-                ListViewItem unItem;
+                // ListViewItem unItem;
                 lvTraversee.Items.Clear();
 
                 while (reader.Read())
@@ -122,33 +120,11 @@ namespace Atlantik_Admin_App.utilitaires.Afficher
                     lvTraversee.Items.Add(new ListViewItem(tabItem));
                 }
             }
-            catch (MySqlException error) 
+            catch (MySqlException error)
             {
                 MessageBox.Show(error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { oConnexion.Close(); }
-
-            // Afficher les places disponibles par catégorie via la table contenir de la BDD
-            
-            try
-            {
-                oConnexion.Open();
-
-            } catch (MySqlException error)
-            {
-                MessageBox.Show(error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                oConnexion.Close();
-            }
-
         }
-
-
-
-
-
-        
     }
 }

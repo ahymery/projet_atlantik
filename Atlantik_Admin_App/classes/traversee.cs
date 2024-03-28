@@ -8,5 +8,33 @@ namespace Atlantik_Admin_App.classes
 {
     internal class traversee
     {
+        private int noTraversee;
+        private string heure;
+        private int capaciteMax;
+
+        public traversee(int noTraversee) 
+        { 
+            this.noTraversee = noTraversee;
+        }
+
+        public int GetNoTraversee()
+        {
+            return noTraversee;
+        }
+
+        public string GetHeure()
+        {
+            return heure;
+        }
+
+        public int GetCapaciteMax()
+        {
+            return capaciteMax;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

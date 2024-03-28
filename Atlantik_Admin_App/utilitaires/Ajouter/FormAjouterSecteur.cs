@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace Atlantik_Admin_App.utilitaires
 {
@@ -44,6 +45,21 @@ namespace Atlantik_Admin_App.utilitaires
             int nb= cmd.ExecuteNonQuery();
             MessageBox.Show("Ajout réussi.");
             Close();
+        }
+
+        private void tbxSecteur_Validating(object sender, EventArgs e)
+        {
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+
+            var resultatTest = objetRegEx.Match(tbxSecteur.Text);
+            if (!resultatTest.Success)
+            {
+                tbxSecteur.BackColor = Color.Red;
+            }
+            else
+            {
+                tbxSecteur.BackColor = Color.Green;
+            }
         }
     }
 }

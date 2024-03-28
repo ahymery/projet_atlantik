@@ -104,6 +104,7 @@
     <Compile Include="classes\Periodes.cs" />
     <Compile Include="classes\Port.cs" />
     <Compile Include="classes\Secteur.cs" />
+    <Compile Include="classes\traversee.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
