@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -49,6 +50,22 @@ namespace Atlantik_Admin_App.utilitaires
             else
             {
                 MessageBox.Show("Aucune ligne n'a été affecté.");
+            }
+        }
+
+        private void tbxAjouterPort_Validating(object sender, EventArgs e)
+        {
+                var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+
+                var resultatTest = objetRegEx.Match(tbxAjouterPort.Text);
+                if (!resultatTest.Success)
+                {
+                    tbxAjouterPort.BackColor = Color.Tomato;
+                }
+                else
+                {
+                    tbxAjouterPort.BackColor = Color.LightGreen;
+                }
             }
         }
     }

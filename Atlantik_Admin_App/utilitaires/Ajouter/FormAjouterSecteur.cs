@@ -42,7 +42,7 @@ namespace Atlantik_Admin_App.utilitaires
             requete = "INSERT INTO secteur(NOM) VALUES (@NOMSECTEUR)";
             var cmd = new MySqlCommand(requete, bdd);
             cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
-            int nb= cmd.ExecuteNonQuery();
+            int nb= cmd.ExecuteNonQuery();            
             MessageBox.Show("Ajout réussi.");
             Close();
         }
@@ -54,11 +54,11 @@ namespace Atlantik_Admin_App.utilitaires
             var resultatTest = objetRegEx.Match(tbxSecteur.Text);
             if (!resultatTest.Success)
             {
-                tbxSecteur.BackColor = Color.Red;
+                tbxSecteur.BackColor = Color.Tomato;
             }
             else
             {
-                tbxSecteur.BackColor = Color.Green;
+                tbxSecteur.BackColor = Color.LightGreen;
             }
         }
     }

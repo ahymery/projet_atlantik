@@ -49,7 +49,7 @@ namespace Atlantik_Admin_App.utilitaires
 
                     // 2eme requete permettant l'insertion des capacités maximales saisis dans les textbox
 
-                    string insert_contenir = "INSERT INTO contenir(LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@LETTRECATEGORIE,   , @CAPACITEMAX);";
+                    string insert_contenir = "INSERT INTO contenir(LETTRECATEGORIE, CAPACITEMAX) VALUES (@LETTRECATEGORIE, @CAPACITEMAX);";
 
                     var cmd_contenir = new MySqlCommand(insert_contenir, oConnexion);
                     

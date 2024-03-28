@@ -25,7 +25,7 @@ namespace Atlantik_Admin_App.classes
 
         public override string ToString()
         {
-            return NomPortDepart + " - " + NomPortArrivee;
+            return idLiaison + " - " +  NomPortDepart + " - " + NomPortArrivee;
         }
     }
 }
