@@ -1,6 +1,5 @@
 ﻿using Atlantik_Admin_App.classes;
 using MySql.Data.MySqlClient;
-using Mysqlx;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -59,62 +58,6 @@ namespace Atlantik_Admin_App.utilitaires
 
         private void cmbClients_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Affichage des quantités réservées dans le group box réservation 
-            try
-            {
-                oConnexion.Open();
-                string requete = "SELECT * FROM enregistrer WHERE NOTYPE = @NOTYPE;";
-                var cmd = new MySqlCommand(requete, oConnexion);
-                foreach (Label lblAffichage in gbxReservation.Controls.OfType<Label>()) 
-                { 
-                    string categorie = lblAffichage.Tag.ToString();
-                    string[] tag;
-                    tag = categorie.Split(';');
-                    cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
-                    break;
-                }
-
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    lblAffichageAdulte.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageJunior.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageEnfant.Text = reader["QUANTITERESERVEE"].ToString();
-                    lblAffichageVoiture.Text = reader["QUANTITERESERVEE"].ToString();
-                }
-            }
-            catch (MySqlException error)
-            {
-                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                oConnexion.Close();
-            }
-
-            // Affichage du montant totale
-
-            try
-            {
-                oConnexion.Open();
-                string requete = "SELECT * FROM reservation;";
-                var cmd = new MySqlCommand(requete, oConnexion);
-                cmd.Parameters.AddWithValue("@NOCLIENT", ((Client)cmbClients.SelectedItem).getIdClient());
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    lblAffichageMontant.Text = reader["MONTANTTOTAL"].ToString() + " euros";
-                }
-
-            }
-            catch (MySqlException error)
-            {
-                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                oConnexion.Close();
-            }
 
             // Affichage des informations des réservations 
 
@@ -154,6 +97,69 @@ namespace Atlantik_Admin_App.utilitaires
             {
                 oConnexion.Close();
             }
+        }
+
+        private void lvReservations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Affichage des quantités réservées dans le group box réservation 
+            try
+            {
+                oConnexion.Open();
+                string requete = "SELECT * FROM enregistrer e INNER JOIN reservation r ON (r.NORESERVATION = e.NORESERVATION) INNER JOIN client c ON (c.NOCLIENT = r.NOCLIENT) WHERE e.NOTYPE = @NOTYPE AND c.NOCLIENT = @NOCLIENT;";
+                var cmd = new MySqlCommand(requete, oConnexion);
+                cmd.Parameters.AddWithValue("@NOCLIENT",((Client)cmbClients.SelectedItem).getIdClient() + 1);
+                foreach (Label lblAffichage in gbxReservation.Controls.OfType<Label>())
+                {
+                    string categorie = lblAffichage.Tag.ToString();
+                    string[] tag;
+                    tag = categorie.Split(';');
+                    cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
+                    break;
+                }
+
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lblAffichageAdulte.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageJunior.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageEnfant.Text = reader["QUANTITERESERVEE"].ToString();
+                    lblAffichageVoiture.Text = reader["QUANTITERESERVEE"].ToString();
+                }
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                oConnexion.Close();
+            }
+
+            // Affichage du montant totale
+
+            try
+            {
+                oConnexion.Open();
+                string requete = "SELECT * FROM reservation WHERE NOCLIENT = @NOCLIENT;";
+                var cmd = new MySqlCommand(requete, oConnexion);
+                cmd.Parameters.AddWithValue("@NOCLIENT", ((Client)cmbClients.SelectedItem).getIdClient());
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lblAffichageMontant.Text = reader["MONTANTTOTAL"].ToString() + " euros";
+                }
+
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show("Erreur : " + error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                oConnexion.Close();
+            }
+
         }
     }
 }

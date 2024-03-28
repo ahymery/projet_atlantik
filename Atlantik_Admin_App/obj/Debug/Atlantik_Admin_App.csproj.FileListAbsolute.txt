@@ -133,7 +133,6 @@ C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debu
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterSecteur.resources
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterPort.resources
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterTarifs.resources
-C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAPropos.resources
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.GenerateResource.cache
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.CoreCompileInputs.cache
 C:\Users\Arthur\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.csproj.CopyComplete
@@ -297,3 +296,7 @@ C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Modifier.FormModifierParametres.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.A_Propos.resources
 C:\Users\eleve\Source\Repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Afficher.FormAfficherTraversee.resources
+C:\Users\Arthur\source\repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Afficher.FormAfficherTraversee.resources
+C:\Users\Arthur\source\repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.FormAjouterTraversee.resources
+C:\Users\Arthur\source\repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.A_Propos.resources
+C:\Users\Arthur\source\repos\ahymery\projet_atlantik\Atlantik_Admin_App\obj\Debug\Atlantik_Admin_App.utilitaires.Modifier.FormModifierParametres.resources

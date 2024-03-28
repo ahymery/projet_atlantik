@@ -33,6 +33,7 @@ namespace Atlantik_Admin_App.utilitaires
 
             try
             {
+
                 oConnexion.Open();
 
                 // 1ere requete d'ajout du nom du bateau dans la table bateau 
@@ -44,39 +45,6 @@ namespace Atlantik_Admin_App.utilitaires
                 cmd_nombateau.Parameters.AddWithValue("@NOMBATEAU", tbxNomBateau.Text);
 
                 cmd_nombateau.ExecuteNonQuery();
-
-                // 2eme requete permettant l'insertion des capacités maximales saisis dans les textbox
-
-                string insertion_capacite = "INSERT INTO contenir(LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES(@LETTRECATEGORIE, @NOBATEAU, @CAPACITEMAX);";
-
-                var cmd_capacite = new MySqlCommand(insertion_capacite, oConnexion);
-
-
-                foreach (TextBox bateau in gbxCapaMax.Controls.OfType<TextBox>())
-                {
-                    string tag = bateau.Tag.ToString();
-                    string[] tags = tag.Split(';');
-
-                    cmd_capacite.Parameters.AddWithValue("@LETTRECATEGORIE", tags[0].ToString());
-
-                    string last_id = "SELECT NOBATEAU FROM bateau GROUP BY NOBATEAU DESC;";
-
-                    var cmd_nobateau = new MySqlCommand(last_id, oConnexion);
-
-                    var nobateau = cmd_nobateau.ExecuteReader();
-
-                    if(nobateau.Read())
-                    {
-                        cmd_capacite.Parameters.AddWithValue("@NOBATEAU", nobateau["NOBATEAU"].ToString());
-                    }
-
-                    cmd_capacite.Parameters.AddWithValue("@CAPACITEMAX", bateau.Text);
-
-                    nobateau.Close();
-                    break;
-                }
-
-                cmd_capacite.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
@@ -87,6 +55,51 @@ namespace Atlantik_Admin_App.utilitaires
                 oConnexion.Close();
             }
 
+                // 2eme requete permettant l'insertion des capacités maximales saisis dans les textbox
+               
+           try
+                {
+                oConnexion.Open();
+                foreach (TextBox bateau in gbxCapaMax.Controls.OfType<TextBox>())
+                {
+                    string insertion_capacite = "INSERT INTO contenir(LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES(@LETTRECATEGORIE, @NOBATEAU, @CAPACITEMAX);";
+
+                    var cmd_capacite = new MySqlCommand(insertion_capacite, oConnexion);
+
+                    string tag = bateau.Tag.ToString();
+
+                    string[] tags;
+
+                    tags = tag.Split(';');
+
+                    cmd_capacite.Parameters.AddWithValue("@LETTRECATEGORIE", tags[0].ToString());
+
+                    string last_id = "SELECT NOBATEAU FROM bateau GROUP BY NOBATEAU DESC;";
+
+                    var cmd_nobateau = new MySqlCommand(last_id, oConnexion);
+
+                   var nobateau = cmd_nobateau.ExecuteReader();
+
+                    if (nobateau.Read())
+                    {
+                        cmd_capacite.Parameters.AddWithValue("@NOBATEAU", nobateau["NOBATEAU"].ToString());
+                        cmd_capacite.Parameters.AddWithValue("@CAPACITEMAX", bateau.Text);
+                    }
+
+
+                    nobateau.Close();
+
+                    cmd_capacite.ExecuteNonQuery();
+                }
+            } catch (MySqlException error)
+            {
+               MessageBox.Show("Erreur : " +  error.Message);
+            }
+            finally 
+            { 
+                MessageBox.Show("Ajout effectué");
+                oConnexion.Close();
+            }
 
         }
 
