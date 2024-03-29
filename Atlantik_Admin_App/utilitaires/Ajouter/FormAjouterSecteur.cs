@@ -41,9 +41,17 @@ namespace Atlantik_Admin_App.utilitaires
             string requete;
             requete = "INSERT INTO secteur(NOM) VALUES (@NOMSECTEUR)";
             var cmd = new MySqlCommand(requete, bdd);
-            cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
-            int nb= cmd.ExecuteNonQuery();            
-            MessageBox.Show("Ajout réussi.");
+            if (Regex.Match(tbxSecteur.Text, "^[a-zA-Zéèêëçàâôù ûïî]*$").Success)
+            {
+                cmd.Parameters.AddWithValue("@NOMSECTEUR", tbxSecteur.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ajout effectué avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Ajout échoué !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbxSecteur.Text = " ";
+            }
             Close();
         }
 

@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Atlantik_Admin_App.utilitaires
 {
@@ -70,28 +71,35 @@ namespace Atlantik_Admin_App.utilitaires
                 Port DepartPort = (Port)cmbDepart.SelectedItem;
                 Port ArriveePort = (Port)cmbArrivee.SelectedItem;
                 Secteur noSecteur = (Secteur)lbxSecteur.SelectedItem;
-
                 cmd.Parameters.AddWithValue("@NOPORT_DEPART", DepartPort.GetId());
                 cmd.Parameters.AddWithValue("@NOSECTEUR", noSecteur.GetId());
                 cmd.Parameters.AddWithValue("@NOPORT_ARRIVEE", ArriveePort.GetId());
-                cmd.Parameters.AddWithValue("@DISTANCE", Convert.ToDouble(tbxDistance.Text));
-                int nb = cmd.ExecuteNonQuery();
 
-                if (nb > 0)
+                // Controles de saisies du textbox distance
+
+                if (Regex.Match(tbxDistance.Text, "^[0-9]+$").Success)
                 {
-                    MessageBox.Show("Ajout Réussi.");
+                    cmd.Parameters.AddWithValue("@DISTANCE", Convert.ToDouble(tbxDistance.Text));
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Ajout effectué avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ajout échoué.");
+                    MessageBox.Show("Erreur de saisie !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbxDistance.Text = " ";
+                    Close();
                 }
+                
+
+
                 oConnexion.Close();
             }
             catch (MySqlException error)
             {
                 MessageBox.Show("Erreur : " + error.Message);
             }
+
         }
     }
 }

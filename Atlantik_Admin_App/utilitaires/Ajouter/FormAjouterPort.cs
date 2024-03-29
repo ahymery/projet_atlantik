@@ -34,31 +34,18 @@ namespace Atlantik_Admin_App.utilitaires
             string requete;
             requete = "INSERT INTO port(NOM) VALUES (@NOMPORT)";
             var cmd = new MySqlCommand(requete, oConnexion);
-            cmd.Parameters.AddWithValue("@NOMPORT", tbxAjouterPort.Text);
-            int nb = cmd.ExecuteNonQuery();
-            if (nb > 0)
+            if (Regex.Match(tbxAjouterPort.Text, "^[a-zA-Zéèêëçàâôù ûïî]*$").Success)
             {
-                MessageBox.Show("Ajout réussi", "Réussite de l'ajout !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmd.Parameters.AddWithValue("@NOMPORT", tbxAjouterPort.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ajout effectué avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else
             {
-                MessageBox.Show("Aucune ligne n'a été affecté.");
-            }
-        }
-
-        private void tbxAjouterPort_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
-
-            var resultatTest = objetRegEx.Match(tbxAjouterPort.Text);
-            if (!resultatTest.Success)
-            {
-                tbxAjouterPort.BackColor = Color.Red;
-            }
-            else
-            {
-                tbxAjouterPort.BackColor = Color.Green;
+                MessageBox.Show("Ajout échoué !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbxAjouterPort.Text = " ";
+                Close();
             }
         }
     }

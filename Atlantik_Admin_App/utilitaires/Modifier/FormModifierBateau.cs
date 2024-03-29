@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -97,9 +98,20 @@ namespace Atlantik_Admin_App.utilitaires
                     cmd.Parameters.AddWithValue("@CAPACITEMAX", tbx.Text.ToString());
                     cmd.Parameters.AddWithValue("@NOBATEAU", ((Bateaux)cmbNomBateau.SelectedItem).getNoBateau());
                     cmd.Parameters.AddWithValue("@LETTRECATEGORIE", tbx.Tag.ToString());
-                    int nb = cmd.ExecuteNonQuery();   
+
+                    if (Regex.Match(tbx.Text, "^[0-9]+$").Success)
+                    {
+                        MessageBox.Show("Modification réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Modification échoué !", "Échec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                        break;
+                    }
+                       
                 }
-                 MessageBox.Show("Modification réussie", "Réussite", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException error)
             {

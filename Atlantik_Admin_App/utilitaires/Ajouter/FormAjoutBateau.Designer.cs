@@ -133,10 +133,10 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(15, 246);
+            this.btnAjouter.Location = new System.Drawing.Point(11, 237);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(2);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(181, 19);
+            this.btnAjouter.Size = new System.Drawing.Size(181, 28);
             this.btnAjouter.TabIndex = 7;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;

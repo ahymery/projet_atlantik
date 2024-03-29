@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Atlantik_Admin_App.utilitaires
@@ -142,11 +143,19 @@ namespace Atlantik_Admin_App.utilitaires
                     cmd.Parameters.AddWithValue("@LETTRECATEGORIE", tag[0].ToString());
                     cmd.Parameters.AddWithValue("@NOTYPE", tag[1].ToString());
                     cmd.Parameters.AddWithValue("@NOLIAISON", ((Liaison)cmbLiaisons.SelectedItem).GetId());
-                    cmd.Parameters.AddWithValue("@TARIF", Convert.ToDouble(tarifs.Text.ToString()));
-                    int nb = cmd.ExecuteNonQuery();
-                    if (nb > 0)
+                    
+                    if (Regex.Match(tarifs.Text, "^[0-9]*$").Success)
                     {
-                        MessageBox.Show("Ajout réussi", "Réussite de l'ajout !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd.Parameters.AddWithValue("@TARIF", Convert.ToDouble(tarifs.Text.ToString()));
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Ajout effectué avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ajout échoué !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tarifs.Text = " ";
+                        Close();
+                        break;
                     }
                 }
                 catch (MySqlException ex)
